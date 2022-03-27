@@ -49,7 +49,7 @@ export const SideMenu = (props: SiteMenuProps) => {
         {meroedu.session.user.isAdministrator && (
           <>
             {meroedu.settings.isBillingEnabled && <SideMenuItem name="billing" title="Billing" href="/admin/billing" isActive={activeItem === "billing"} />}
-            <SideMenuItem name="webhooks" title="Webhooks" href="/admin/webhooks" isActive={activeItem === "webhooks"} />
+            {/* <SideMenuItem name="webhooks" title="Webhooks" href="/admin/webhooks" isActive={activeItem === "webhooks"} /> */}
             
           </>
         )}
