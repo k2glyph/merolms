@@ -147,9 +147,6 @@ func routes(r *web.Engine) *web.Engine {
 		//From this step, only Administrators are allowed
 		ui.Use(middlewares.IsAuthorized(enum.RoleAdministrator))
 
-		ui.Get("/admin/export", handlers.Page("Export · Site Settings", "", "Administration/pages/Export.page"))
-		ui.Get("/admin/export/posts.csv", handlers.ExportPostsToCSV())
-		ui.Get("/admin/export/backup.zip", handlers.ExportBackupZip())
 		ui.Get("/admin/webhooks", handlers.ManageWebhooks())
 		ui.Post("/_api/admin/webhook", handlers.CreateWebhook())
 		ui.Put("/_api/admin/webhook/:id", handlers.UpdateWebhook())
