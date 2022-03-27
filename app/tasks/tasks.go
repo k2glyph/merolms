@@ -1,13 +1,8 @@
 package tasks
 
 import (
-	"context"
 	"fmt"
 
-	"github.com/k2glyph/meroedu/app/models/entity"
-	"github.com/k2glyph/meroedu/app/models/enum"
-	"github.com/k2glyph/meroedu/app/models/query"
-	"github.com/k2glyph/meroedu/app/pkg/bus"
 	"github.com/k2glyph/meroedu/app/pkg/worker"
 )
 
@@ -21,14 +16,4 @@ func link(baseURL, path string, args ...interface{}) string {
 
 func linkWithText(text, baseURL, path string, args ...interface{}) string {
 	return fmt.Sprintf("<a href='%s%s'>%s</a>", baseURL, fmt.Sprintf(path, args...), text)
-}
-
-func getActiveSubscribers(ctx context.Context, post *entity.Post, channel enum.NotificationChannel, event enum.NotificationEvent) ([]*entity.User, error) {
-	q := &query.GetActiveSubscribers{
-		Number:  post.Number,
-		Channel: channel,
-		Event:   event,
-	}
-	err := bus.Dispatch(ctx, q)
-	return q.Result, err
 }

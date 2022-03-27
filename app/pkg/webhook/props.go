@@ -2,7 +2,6 @@ package webhook
 
 import (
 	"github.com/k2glyph/meroedu/app/models/entity"
-	"github.com/k2glyph/meroedu/app/models/enum"
 )
 
 // Props is a map of key:value
@@ -30,50 +29,6 @@ func (p Props) SetTenant(tenant *entity.Tenant, keyPrefix, baseURL, logoURL stri
 		p[keyPrefix+"_locale"] = tenant.Locale
 		p[keyPrefix+"_url"] = baseURL
 		p[keyPrefix+"_logo"] = logoURL
-	}
-	return p
-}
-
-// SetPost describe the post prefixed by "keyPrefix"
-func (p Props) SetPost(post *entity.Post, keyPrefix, baseURL string, includeAllFields, includeAuthor bool) Props {
-	if post != nil {
-		p[keyPrefix+"_id"] = post.ID
-		p[keyPrefix+"_number"] = post.Number
-		p[keyPrefix+"_title"] = post.Title
-		p[keyPrefix+"_slug"] = post.Slug
-		p[keyPrefix+"_description"] = post.Description
-		p[keyPrefix+"_created_at"] = post.CreatedAt
-		p[keyPrefix+"_url"] = post.Url(baseURL)
-
-		if includeAuthor {
-			p.SetUser(post.User, keyPrefix+"_author")
-		}
-
-		if includeAllFields {
-			postResponse := post.Response
-			p[keyPrefix+"_votes"] = post.VotesCount
-			p[keyPrefix+"_comments"] = post.CommentsCount
-			p[keyPrefix+"_status"] = post.Status.Name()
-			p[keyPrefix+"_tags"] = post.Tags
-			p[keyPrefix+"_response"] = postResponse != nil
-
-			if postResponse != nil {
-				keyPrefix := keyPrefix + "_response"
-				p[keyPrefix+"_text"] = postResponse.Text
-				p[keyPrefix+"_responded_at"] = postResponse.RespondedAt
-				p.SetUser(postResponse.User, keyPrefix+"_author")
-
-				originalPost := postResponse.Original
-				if post.Status == enum.PostDuplicate && originalPost != nil {
-					keyPrefix := keyPrefix + "_original"
-					p[keyPrefix+"_number"] = originalPost.Number
-					p[keyPrefix+"_title"] = originalPost.Title
-					p[keyPrefix+"_slug"] = originalPost.Slug
-					p[keyPrefix+"_status"] = originalPost.Status.Name()
-					p[keyPrefix+"_url"] = originalPost.Url(baseURL)
-				}
-			}
-		}
 	}
 	return p
 }

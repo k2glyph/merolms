@@ -30,7 +30,6 @@ import (
 	_ "github.com/k2glyph/meroedu/app/services/log/sql"
 	_ "github.com/k2glyph/meroedu/app/services/oauth"
 	_ "github.com/k2glyph/meroedu/app/services/sqlstore/postgres"
-	_ "github.com/k2glyph/meroedu/app/services/webhook"
 )
 
 //RunServer starts the Meroedu Server

@@ -96,10 +96,10 @@ func UpdateUserSettings() web.HandlerFunc {
 		}
 
 		if err := bus.Dispatch(c,
-			&cmd.UploadImage{
-				Image:  action.Avatar,
-				Folder: "avatars",
-			},
+			// &cmd.UploadImage{
+			// 	Image:  action.Avatar,
+			// 	Folder: "avatars",
+			// },
 			&cmd.UpdateCurrentUser{
 				Name:       action.Name,
 				Avatar:     action.Avatar,

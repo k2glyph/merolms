@@ -42,10 +42,10 @@ func UpdateSettings() web.HandlerFunc {
 		}
 
 		if err := bus.Dispatch(c,
-			&cmd.UploadImage{
-				Image:  action.Logo,
-				Folder: "logos",
-			},
+			// &cmd.UploadImage{
+			// 	Image:  action.Logo,
+			// 	Folder: "logos",
+			// },
 			&cmd.UpdateTenantSettings{
 				Logo:           action.Logo,
 				Title:          action.Title,
@@ -177,10 +177,10 @@ func SaveOAuthConfig() web.HandlerFunc {
 		}
 
 		if err := bus.Dispatch(c,
-			&cmd.UploadImage{
-				Image:  action.Logo,
-				Folder: "logos",
-			},
+			// &cmd.UploadImage{
+			// 	Image:  action.Logo,
+			// 	Folder: "logos",
+			// },
 			&cmd.SaveCustomOAuthConfig{
 				ID:                action.ID,
 				Logo:              action.Logo,

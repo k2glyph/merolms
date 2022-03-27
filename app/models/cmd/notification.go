@@ -23,15 +23,15 @@ type AddNewNotification struct {
 	Result *entity.Notification
 }
 
-type AddSubscriber struct {
-	Post *entity.Post
-	User *entity.User
-}
+// type AddSubscriber struct {
+// 	Post *entity.Post
+// 	User *entity.User
+// }
 
-type RemoveSubscriber struct {
-	Post *entity.Post
-	User *entity.User
-}
+// type RemoveSubscriber struct {
+// 	Post *entity.Post
+// 	User *entity.User
+// }
 
 type SupressEmail struct {
 	EmailAddresses []string

@@ -144,26 +144,20 @@ func addNewNotification(ctx context.Context, c *cmd.AddNewNotification) error {
 	})
 }
 
-func addSubscriber(ctx context.Context, c *cmd.AddSubscriber) error {
-	return using(ctx, func(trx *dbx.Trx, tenant *entity.Tenant, user *entity.User) error {
-		return internalAddSubscriber(trx, c.Post, tenant, c.User, true)
-	})
-}
-
-func removeSubscriber(ctx context.Context, c *cmd.RemoveSubscriber) error {
-	return using(ctx, func(trx *dbx.Trx, tenant *entity.Tenant, user *entity.User) error {
-		_, err := trx.Execute(`
-			INSERT INTO post_subscribers (tenant_id, user_id, post_id, created_at, updated_at, status)
-			VALUES ($1, $2, $3, $4, $4, $5) ON CONFLICT (user_id, post_id)
-			DO UPDATE SET status = 0, updated_at = $4`,
-			tenant.ID, c.User.ID, c.Post.ID, time.Now(), enum.SubscriberInactive,
-		)
-		if err != nil {
-			return errors.Wrap(err, "failed remove post subscriber")
-		}
-		return nil
-	})
-}
+// func removeSubscriber(ctx context.Context, c *cmd.RemoveSubscriber) error {
+// 	return using(ctx, func(trx *dbx.Trx, tenant *entity.Tenant, user *entity.User) error {
+// 		_, err := trx.Execute(`
+// 			INSERT INTO post_subscribers (tenant_id, user_id, post_id, created_at, updated_at, status)
+// 			VALUES ($1, $2, $3, $4, $4, $5) ON CONFLICT (user_id, post_id)
+// 			DO UPDATE SET status = 0, updated_at = $4`,
+// 			tenant.ID, c.User.ID, c.Post.ID, time.Now(), enum.SubscriberInactive,
+// 		)
+// 		if err != nil {
+// 			return errors.Wrap(err, "failed remove post subscriber")
+// 		}
+// 		return nil
+// 	})
+// }
 
 func getActiveSubscribers(ctx context.Context, q *query.GetActiveSubscribers) error {
 	return using(ctx, func(trx *dbx.Trx, tenant *entity.Tenant, user *entity.User) error {
@@ -246,23 +240,6 @@ func getActiveSubscribers(ctx context.Context, q *query.GetActiveSubscribers) er
 		}
 		return nil
 	})
-}
-
-func internalAddSubscriber(trx *dbx.Trx, post *entity.Post, tenant *entity.Tenant, user *entity.User, force bool) error {
-	conflict := " DO NOTHING"
-	if force {
-		conflict = "(user_id, post_id) DO UPDATE SET status = $5, updated_at = $4"
-	}
-
-	_, err := trx.Execute(fmt.Sprintf(`
-	INSERT INTO post_subscribers (tenant_id, user_id, post_id, created_at, updated_at, status)
-	VALUES ($1, $2, $3, $4, $4, $5)  ON CONFLICT %s`, conflict),
-		tenant.ID, user.ID, post.ID, time.Now(), enum.SubscriberActive,
-	)
-	if err != nil {
-		return errors.Wrap(err, "failed insert post subscriber")
-	}
-	return nil
 }
 
 func supressEmail(ctx context.Context, c *cmd.SupressEmail) error {
