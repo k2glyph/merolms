@@ -1,0 +1,1 @@
+web: ./bin/meroedu migrate && ./bin/meroedu
