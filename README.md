@@ -1,69 +1,79 @@
-<p align="center">
-  <a href="https://meroedu.io">
-    <img src="etc/logo-small.png" />
-  </a>
-  <h1 align="center">Meroedu</h1>
-  <div align="center">
-    <strong>A platform to collect and organize customer feedback.</strong>
-  </div>
-  <div align="center">Let your customers share, vote and discuss on suggestions they have to make your product even better.</div>
-</p>
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=meroedu_meroedu&metric=alert_status)](https://sonarcloud.io/dashboard?id=meroedu_meroedu)
+![Go](https://github.com/meroedu/meroedu/workflows/Go/badge.svg?branch=master)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=meroedu_meroedu&metric=coverage)](https://sonarcloud.io/dashboard?id=meroedu_meroedu)
+[![Go Report Card](https://goreportcard.com/badge/github.com/meroedu/meroedu)](https://goreportcard.com/report/github.com/meroedu/meroedu)
+# Introduction
+Mero Edu is a software application for the administration, documentation, tracking, reporting, automation and delivery of educational courses, training programs, or learning and development programs.
 
-<div align="center">
-  <h3>
-    <a href="https://meroedu.io">
-      Website
-    </a>
-    <span> | </span>
-    <a href="https://feedback.meroedu.io/">
-      See it in action
-    </a>
-  </h3>
-</div>
+## Getting Started
 
-<div align="center">
-  <sub>Built with ❤️ by <a href="https://github.com/goenning">Guilherme Oenning</a> and <a href="https://github.com/k2glyph/meroedu/graphs/contributors">contributors</a></sub>
-</div>
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-<br />
+[![alt text](screenshots/meroedu.png)](https://meroedu.com)
 
-<img src="etc/homepage.png">
+### Prerequisites
 
-## Get Started
+1. NodeJS       => Frontend
+2. Golang       => Backend
+3. Docker(optional)
+4. Make
 
-There are two options on how to get started with Meroedu
+## Development Stack
+1. Golang
+2. ReactJS
+3. Mariadb(Bitnami galera cluster)
 
-- **Self-Hosted**: You can install Meroedu on any cloud providers. There is no fee associated and you are responsible for managing it. [Learn how](https://meroedu.io/#get-started)
-- **Cloud**: Cloud Meroedu is a fully managed services where you get started in minutes. Forget about managing software updates and patches, we do it all for you! [Sign up now](https://meroedu.io/#get-started)
+### Running & Initializing database
+`make prepare`
 
-## Contributors
+## Running the tests
 
-This project exists thanks to all the people who contribute.
+`make test`
+`make test-coverage`
 
-<a href="https://github.com/k2glyph/meroedu/graphs/contributors"><img src="https://opencollective.com/meroedu/contributors.svg?width=890&button=false" /></a>
+## Start/Stop Backend Application
 
-Read our [CONTRIBUTING](CONTRIBUTING.md) guide to learn how you can contribute to Meroedu.
+`make run`
+`make stop`
 
-## Sponsors
+## Reset Backend Application
 
-Does your organization use Meroedu? [Become a sponsor](https://opencollective.com/meroedu) and your logo will show up here with a link to your website.
+`make reset`
 
-<a href="https://opencollective.com/meroedu/sponsors/0/website" target="_blank"><img src="https://opencollective.com/meroedu/sponsors/0/avatar"></a>
-<a href="https://opencollective.com/meroedu/sponsors/1/website" target="_blank"><img src="https://opencollective.com/meroedu/sponsors/1/avatar"></a>
-<a href="https://opencollective.com/meroedu/sponsors/2/website" target="_blank"><img src="https://opencollective.com/meroedu/sponsors/2/avatar"></a>
-<a href="https://opencollective.com/meroedu/sponsors/3/website" target="_blank"><img src="https://opencollective.com/meroedu/sponsors/3/avatar"></a>
-<a href="https://opencollective.com/meroedu/sponsors/4/website" target="_blank"><img src="https://opencollective.com/meroedu/sponsors/4/avatar"></a>
+## Start/Stop Frontend Application
+```
+cd ui/
+yarn add react-scripts
+yarn start
+(CTRL+C) to stop
+```
 
-## Backers
+## Code Folder Structure
 
-Thank you to all our backers! 🙏
+```
+domain // Entity
+├── course.go
+├── category.go
+└── author.go 
 
-<a href="https://opencollective.com/meroedu" target="_blank">
-  <img src="https://opencollective.com/meroedu/backers.svg?width=890">
-</a>
+course
+├── delivery
+│   └── http
+│       ├── course_handler.go
+│       └── course_test.go
+├── mocks
+│   ├── courseRepository.go
+│   └── courseUsecase.go
+├── repository // implementation
+│   ├── mysql_course.go
+│   └── mysql_course_test.go
+├── repository.go 
+├── usecase // Implementation
+│   ├── courseu_usecase_test.go
+│   └── course_usecase.go
+└── usecase.go // Usecase Interface.
+```
 
-Thanks to [BrowserStack](https://browserstack.com/) for providing us with free cross-browser testing for Meroedu.
 
-<a href="https://browserstack.com" target="_blank">
-  <img src="etc/browserstack.png">
-</a>
+## License
+[View License](https://github.com/meroedu/meroedu/blob/master/LICENSE)
