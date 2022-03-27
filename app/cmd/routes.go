@@ -108,8 +108,6 @@ func routes(r *web.Engine) *web.Engine {
 	r.Use(middlewares.CheckTenantPrivacy())
 
 	r.Get("/", handlers.Index())
-	r.Get("/posts/:number", handlers.PostDetails())
-	r.Get("/posts/:number/:slug", handlers.PostDetails())
 
 	ui := r.Group()
 	{
@@ -140,7 +138,6 @@ func routes(r *web.Engine) *web.Engine {
 		ui.Get("/admin/privacy", handlers.Page("Privacy · Site Settings", "", "Administration/pages/PrivacySettings.page"))
 		ui.Get("/admin/invitations", handlers.Page("Invitations · Site Settings", "", "Administration/pages/Invitations.page"))
 		ui.Get("/admin/members", handlers.ManageMembers())
-		ui.Get("/admin/tags", handlers.ManageTags())
 		ui.Get("/admin/authentication", handlers.ManageAuthentication())
 		ui.Get("/_api/admin/oauth/:provider", handlers.GetOAuthConfig())
 
@@ -171,14 +168,10 @@ func routes(r *web.Engine) *web.Engine {
 
 	// Public operations
 	// Does not require authentication
-	publicApi := r.Group()
-	{
-		publicApi.Get("/api/v1/posts", apiv1.SearchPosts())
-		publicApi.Get("/api/v1/tags", apiv1.ListTags())
-		publicApi.Get("/api/v1/posts/:number", apiv1.GetPost())
-		publicApi.Get("/api/v1/posts/:number/comments", apiv1.ListComments())
-		publicApi.Get("/api/v1/posts/:number/comments/:id", apiv1.GetComment())
-	}
+	// publicApi := r.Group()
+	// {
+
+	// }
 
 	// Operations used to manage the content of a site
 	// Available to any authenticated user
@@ -187,18 +180,7 @@ func routes(r *web.Engine) *web.Engine {
 		membersApi.Use(middlewares.IsAuthenticated())
 		membersApi.Use(middlewares.BlockLockedTenants())
 
-		membersApi.Post("/api/v1/posts", apiv1.CreatePost())
-		membersApi.Put("/api/v1/posts/:number", apiv1.UpdatePost())
-		membersApi.Post("/api/v1/posts/:number/comments", apiv1.PostComment())
-		membersApi.Put("/api/v1/posts/:number/comments/:id", apiv1.UpdateComment())
-		membersApi.Delete("/api/v1/posts/:number/comments/:id", apiv1.DeleteComment())
-		membersApi.Post("/api/v1/posts/:number/votes", apiv1.AddVote())
-		membersApi.Delete("/api/v1/posts/:number/votes", apiv1.RemoveVote())
-		membersApi.Post("/api/v1/posts/:number/subscription", apiv1.Subscribe())
-		membersApi.Delete("/api/v1/posts/:number/subscription", apiv1.Unsubscribe())
-
 		membersApi.Use(middlewares.IsAuthorized(enum.RoleCollaborator, enum.RoleAdministrator))
-		membersApi.Put("/api/v1/posts/:number/status", apiv1.SetResponse())
 	}
 
 	// Operations used to manage a site
@@ -210,13 +192,10 @@ func routes(r *web.Engine) *web.Engine {
 		staffApi.Use(middlewares.IsAuthorized(enum.RoleCollaborator, enum.RoleAdministrator))
 
 		staffApi.Get("/api/v1/users", apiv1.ListUsers())
-		staffApi.Get("/api/v1/posts/:number/votes", apiv1.ListVotes())
 		staffApi.Post("/api/v1/invitations/send", apiv1.SendInvites())
 		staffApi.Post("/api/v1/invitations/sample", apiv1.SendSampleInvite())
 
 		staffApi.Use(middlewares.BlockLockedTenants())
-		staffApi.Post("/api/v1/posts/:number/tags/:slug", apiv1.AssignTag())
-		staffApi.Delete("/api/v1/posts/:number/tags/:slug", apiv1.UnassignTag())
 	}
 
 	// Operations used to manage a site
@@ -228,12 +207,8 @@ func routes(r *web.Engine) *web.Engine {
 		adminApi.Use(middlewares.IsAuthorized(enum.RoleAdministrator))
 
 		adminApi.Post("/api/v1/users", apiv1.CreateUser())
-		adminApi.Post("/api/v1/tags", apiv1.CreateEditTag())
-		adminApi.Put("/api/v1/tags/:slug", apiv1.CreateEditTag())
-		adminApi.Delete("/api/v1/tags/:slug", apiv1.DeleteTag())
 
 		adminApi.Use(middlewares.BlockLockedTenants())
-		adminApi.Delete("/api/v1/posts/:number", apiv1.DeletePost())
 	}
 
 	return r
