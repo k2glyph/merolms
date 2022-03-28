@@ -1,0 +1,21 @@
+version: "3"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: app
+    command: "make build"
+    ports:
+      - 80:3000
+    environment:
+      HOST_MODE: multi
+      HOST_DOMAIN: meroedu.io
+      DATABASE_URL: postgres://meroedu:meroedu_pw@host.docker.internal:5555/fider_1?sslmode=disable
+      JWT_SECRET: hsjl]W;&ZcHxT&FK;s%bgIQF:#ch=~#Al4:5]N;7V<qPZ3e9lT4'%;go;LIkc%k
+      EMAIL_NOREPLY: noreply@yourdomain.com
+      EMAIL_SMTP_HOST: host.docker.internal
+      EMAIL_SMTP_PORT: 1025
+      CDN_HOST: meroedu.io
+    volumes:
+    - .:/app

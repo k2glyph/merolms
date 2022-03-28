@@ -1,7 +1,7 @@
 #####################
 ### Server Build Step
 #####################
-FROM --platform=${TARGETPLATFORM:-linux/amd64} golang:1.17-buster AS server-builder 
+FROM --platform=${TARGETPLATFORM:-linux/amd64} golang:1.18-buster AS server-builder 
 
 ARG COMMITHASH
 
@@ -22,8 +22,8 @@ FROM --platform=${TARGETPLATFORM:-linux/amd64} node:16-buster AS ui-builder
 WORKDIR /ui
 
 
-COPY package.json package-lock.json ./
-RUN npm ci
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
 COPY . .
 RUN make build-ssr
