@@ -123,9 +123,9 @@ const SignUpPage = () => {
     <div id="p-signup" className="page container w-max-6xl">
       {modal}
       <div className="h-20 text-center mb-4">
-        <img className="logo" alt="Logo" src="https://meroedu.io/images/logo-100x100.png" />
+        <img className="logo" alt="Logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
       </div>
-
+    
       <h3 className="text-display mb-2">1. Who are you?</h3>
       <DisplayError fields={["token"]} error={error} />
 
@@ -145,10 +145,10 @@ const SignUpPage = () => {
         </>
       )}
 
-      <h3 className="text-display mb-2 mt-8">2. What is this Feedback Forum for?</h3>
+      <h3 className="text-display mb-2 mt-8">2. What is your Company or Product Name?</h3>
 
       <Form error={error} className="mb-8">
-        <Input field="tenantName" maxLength={60} onChange={setTenantName} placeholder="your company or product name" />
+        <Input field="tenantName" maxLength={60} onChange={setTenantName} placeholder="Your company or product name" />
         {!Meroedu.isSingleHostMode() && (
           <Input field="subdomain" maxLength={40} onChange={setSubdomainName} placeholder="subdomain" suffix={meroedu.settings.domain}>
             {subdomain.isAvailable && (

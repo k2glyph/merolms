@@ -63,14 +63,13 @@ test-e2e-ui: ## Run all E2E tests
 ##@ Running (Watch Mode)
 
 watch:
-	make -j4 watch-server watch-ui
+	make -j4 watch-server
 
 watch-server: migrate ## Build and run server in watch mode
 	air -c air.conf
 
 watch-ui: ## Build and run server in watch mode
 	npx webpack-cli -w
-
 
 
 ##@ Linting

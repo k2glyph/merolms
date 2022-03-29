@@ -24,7 +24,7 @@ export const TenantLogo = (props: TenantLogoProps) => {
   if (tenant && tenant.logoBlobKey) {
     return <img src={TenantLogoURL(meroedu.session.tenant, props.size)} alt={tenant.name} />
   } else if (props.useMeroeduIfEmpty) {
-    return <img src="https://meroedu.io/images/logo-100x100.png" alt="Meroedu" />
+    return <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Meroedu" />
   }
   return null
 }

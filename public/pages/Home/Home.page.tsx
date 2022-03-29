@@ -18,7 +18,9 @@ const HomePage = (props: HomePageProps) => {
   return (
     <>
       <Header />
+      
       <h1> Welcome to Mero Edu</h1>
+      <h1> Welcome welcome</h1>
       {/* <div id="p-home" className="page container">
         <div className="p-home__welcome-col">
           <VStack spacing={2}>

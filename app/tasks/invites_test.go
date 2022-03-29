@@ -44,7 +44,7 @@ func TestSendInvites(t *testing.T) {
 	Expect(emailmock.MessageHistory[0].Tenant).Equals(mock.DemoTenant)
 	Expect(emailmock.MessageHistory[0].Props).Equals(dto.Props{
 		"subject": "My Subject",
-		"logo":    "https://meroedu.io/images/logo-100x100.png",
+		"logo":    "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png",
 	})
 	Expect(emailmock.MessageHistory[0].From).Equals(dto.Recipient{
 		Name: "Jon Snow",
