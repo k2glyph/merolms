@@ -11,43 +11,7 @@ const locales: { [key: string]: Locale } = {
   "pt-BR": {
     text: "🇧🇷 Portuguese (Brazilian)",
     translated: 100,
-  },
-  "es-ES": {
-    text: "🇪🇸 Spanish",
-    translated: 100,
-  },
-  de: {
-    text: "🇩🇪 German",
-    translated: 100,
-  },
-  fr: {
-    text: "🇫🇷 French",
-    translated: 100,
-  },
-  "sv-SE": {
-    text: "🇸🇪 Swedish",
-    translated: 100,
-  },
-  nl: {
-    text: "🇳🇱 Dutch",
-    translated: 100,
-  },
-  pl: {
-    text: "🇵🇱 Polish",
-    translated: 100,
-  },
-  ru: {
-    text: "🇷🇺 Russian",
-    translated: 100,
-  },
-  sk: {
-    text: "🇸🇰 Slovak",
-    translated: 100,
-  },
-  tr: {
-    text: "🇹🇷 Turkish",
-    translated: 100,
-  },
+  }
 }
 
 export default locales

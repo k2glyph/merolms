@@ -10,16 +10,7 @@ import { I18nProvider } from "@lingui/react"
 // Locale files must be bundled for SSR to work synchronously
 const messages: { [key: string]: any } = {
   en: require(`../locale/en/client`),
-  "pt-BR": require(`../locale/pt-BR/client`),
-  "sv-SE": require(`../locale/sv-SE/client`),
-  "es-ES": require(`../locale/es-ES/client`),
-  nl: require(`../locale/nl/client`),
-  de: require(`../locale/de/client`),
-  fr: require(`../locale/fr/client`),
-  pl: require(`../locale/pl/client`),
-  ru: require(`../locale/ru/client`),
-  sk: require(`../locale/sk/client`),
-  tr: require(`../locale/tr/client`),
+  "pt-BR": require(`../locale/pt-BR/client`)
 }
 
 // ESBuild doesn't support Dynamic Imports, so we need to map them statically

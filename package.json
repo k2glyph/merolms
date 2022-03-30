@@ -76,17 +76,7 @@
     "sourceLocale": "en",
     "format": "minimal",
     "locales": [
-      "pt-BR",
-      "es-ES",
-      "nl",
-      "sv-SE",
-      "fr",
-      "de",
-      "en",
-      "pl",
-      "ru",
-      "sk",
-      "tr"
+      "pt-BR"
     ]
   },
   "browserslist": ">1%, not dead",
