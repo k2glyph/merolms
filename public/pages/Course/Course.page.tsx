@@ -1,10 +1,11 @@
 import "./Course.page.scss"
+import "@meroedu/assets/styles/tailwind.css"
 import React, { useState, useRef } from "react"
 import Card from "@meroedu/components/common/Card"
 // @ts-ignore
 import courses from "./course.json"
 import Pager from "@meroedu/components/Pager/Pager"
-// import { Banner } from "@meroedu/components/Banner"
+import { Banner } from "@meroedu/components/Banner"
 // import { Course } from "@meroedu/models"
 
 export interface CoursePageProps {
@@ -87,7 +88,7 @@ const CoursePage: React.FC<CoursePageProps> = ({ countPerStatus }) => {
   return (
     <Pager>
       <div className="md:container md:mx-auto">
-        {/* <Banner title="Courses" /> */}
+        <Banner title="Courses" />
         <div className="flex justify-between  flex-row">
           <input
             type="text"

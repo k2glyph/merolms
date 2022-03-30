@@ -16,10 +16,7 @@ const HomePage = (props: HomePageProps) => {
   return (
     <>
       <Header />
-      <h1> Welcome to Mero Edu</h1>
-      <h1 className="text-3xl font-bold underline">
-          Hello world!
-        </h1>
+      <h1 style={{textAlign: "center", fontSize: 72, fontStyle: "bold"}}> Welcome to Mero Edu</h1>
     </>
   )
 }

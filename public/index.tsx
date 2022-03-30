@@ -8,7 +8,7 @@ import { classSet, Meroedu, MeroeduContext, actions, activateI18N } from "@meroe
 import { I18n } from "@lingui/core"
 import { I18nProvider } from "@lingui/react"
 import { AsyncPage } from "./AsyncPages"
-import "./assets/styles/tailwind.css"
+
 
 const Loading = () => (
   <div className="page">
