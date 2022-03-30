@@ -45,8 +45,8 @@ export const NotificationSettings = (props: NotificationSettingsProps) => {
     return <Toggle key={`${settingsKey}_${channel}`} active={active} label={label} onToggle={onToggle} />
   }
 
-  const info = (settingsKey: string, aboutForVisitors: string, aboutForCollaborators: string) => {
-    const about = meroedu.session.user.isCollaborator ? aboutForCollaborators : aboutForVisitors
+  const info = (settingsKey: string, aboutForLearners: string, aboutForCollaborators: string) => {
+    const about = meroedu.session.user.isCollaborator ? aboutForCollaborators : aboutForLearners
     const webEnabled = isEnabled(settingsKey, WebChannel)
     const emailEnabled = isEnabled(settingsKey, EmailChannel)
 
@@ -101,7 +101,7 @@ export const NotificationSettings = (props: NotificationSettingsProps) => {
               </div>
               {info(
                 "event_notification_new_post",
-                t({ id: "mysettings.notification.event.newpost.visitors", message: "new posts on this site" }),
+                t({ id: "mysettings.notification.event.newpost.learners", message: "new posts on this site" }),
                 t({ id: "mysettings.notification.event.newpost.staff", message: "new posts on this site" })
               )}
               <HStack spacing={6}>
@@ -115,7 +115,7 @@ export const NotificationSettings = (props: NotificationSettingsProps) => {
               </div>
               {info(
                 "event_notification_new_comment",
-                t({ id: "mysettings.notification.event.discussion.visitors", message: "comments on posts you've subscribed to" }),
+                t({ id: "mysettings.notification.event.discussion.learners", message: "comments on posts you've subscribed to" }),
                 t({ id: "mysettings.notification.event.discussion.staff", message: "comments on all posts unless individually unsubscribed" })
               )}
               <HStack spacing={6}>
@@ -129,7 +129,7 @@ export const NotificationSettings = (props: NotificationSettingsProps) => {
               </div>
               {info(
                 "event_notification_change_status",
-                t({ id: "mysettings.notification.event.statuschanged.visitors", message: "status change on posts you've subscribed to" }),
+                t({ id: "mysettings.notification.event.statuschanged.learners", message: "status change on posts you've subscribed to" }),
                 t({ id: "mysettings.notification.event.statuschanged.staff", message: "status change on all posts unless individually unsubscribed" })
               )}
               <HStack spacing={6}>

@@ -130,7 +130,7 @@ func CompleteSignInProfile() web.HandlerFunc {
 			Name:   action.Name,
 			Email:  result.Email,
 			Tenant: c.Tenant(),
-			Role:   enum.RoleVisitor,
+			Role:   enum.RoleLearner,
 		}
 		err = bus.Dispatch(c, &cmd.RegisterUser{User: user})
 		if err != nil {

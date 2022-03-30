@@ -83,7 +83,7 @@
   "modal.deletecomment.text": "This process is irreversible. <0>Are you sure?</0>",
   "modal.showvotes.message.zeromatches": "No users found matching <0>{0}</0>.",
   "modal.showvotes.query.placeholder": "Search for users by name...",
-  "modal.signin.header": "Sign in to post and vote",
+  "modal.signin.header": "Sign in to learn and collaborate",
   "mynotifications.label.readrecently": "Read on last 30 days.",
   "mynotifications.message.nounread": "No unread notifications.",
   "mynotifications.page.subtitle": "Stay up to date with what's happening",

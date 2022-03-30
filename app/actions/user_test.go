@@ -94,7 +94,7 @@ func TestChangeUserRole_Unauthorized(t *testing.T) {
 	RegisterT(t)
 
 	for _, user := range []*entity.User{
-		{ID: 1, Role: enum.RoleVisitor},
+		{ID: 1, Role: enum.RoleLearner},
 		{ID: 1, Role: enum.RoleCollaborator},
 		{ID: 2, Role: enum.RoleAdministrator},
 	} {
@@ -114,7 +114,7 @@ func TestChangeUserRole_Authorized(t *testing.T) {
 func TestChangeUserRole_InvalidRole(t *testing.T) {
 	RegisterT(t)
 
-	targetUser := &entity.User{Role: enum.RoleVisitor}
+	targetUser := &entity.User{Role: enum.RoleLearner}
 	currentUser := &entity.User{Role: enum.RoleAdministrator}
 
 	action := actions.ChangeUserRole{UserID: targetUser.ID, Role: 4}
@@ -184,7 +184,7 @@ func TestChangeUserRole_CurrentUser(t *testing.T) {
 		return app.ErrNotFound
 	})
 
-	action := actions.ChangeUserRole{UserID: currentUser.ID, Role: enum.RoleVisitor}
+	action := actions.ChangeUserRole{UserID: currentUser.ID, Role: enum.RoleLearner}
 	action.IsAuthorized(context.Background(), currentUser)
 	result := action.Validate(context.Background(), currentUser)
 	ExpectFailed(result, "userID")

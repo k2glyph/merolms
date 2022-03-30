@@ -48,7 +48,7 @@ const jonSnow: User = {
 const aryaStark: User = {
   id: 0,
   name: "Arya Snow",
-  role: UserRole.Visitor,
+  role: UserRole.Learner,
   status: UserStatus.Active,
   avatarURL: "https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 }
@@ -56,7 +56,7 @@ const aryaStark: User = {
 const robStark: User = {
   id: 0,
   name: "Robert Stark",
-  role: UserRole.Visitor,
+  role: UserRole.Learner,
   status: UserStatus.Active,
   avatarURL:
     "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&ixqx=1JzWlMeJDF&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.25&w=256&h=256&q=80",

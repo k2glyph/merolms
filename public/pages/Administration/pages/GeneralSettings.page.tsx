@@ -59,7 +59,7 @@ const GeneralSettingsPage = () => {
           onChange={setWelcomeMessage}
         >
           <p className="text-muted">
-            The message is shown on this site&apos;s home page. Use it to help visitors understad what this space is about and the importance of their feedback.
+            The message is shown on this site&apos;s home page. Use it to help learners understad what this space is about and the importance of their feedback.
             Leave it empty for a default message.
           </p>
         </TextArea>
@@ -74,7 +74,7 @@ const GeneralSettingsPage = () => {
           onChange={setInvitation}
         >
           <p className="text-muted">
-            This text is used as a placeholder for the suggestion&apos;s text box. Use it to invite your visitors into sharing their suggestions and feedback.
+            This text is used as a placeholder for the suggestion&apos;s text box. Use it to invite your learners into sharing their suggestions and feedback.
             Leave it empty for a default message.
           </p>
         </Input>

@@ -280,7 +280,7 @@ func TestUser_InvalidAPIKey(t *testing.T) {
 	Expect(query.String("errors[0].message")).Equals("API Key is invalid")
 }
 
-func TestUser_ValidAPIKey_Visitor(t *testing.T) {
+func TestUser_ValidAPIKey_Learner(t *testing.T) {
 	RegisterT(t)
 
 	bus.AddHandler(func(ctx context.Context, q *query.GetUserByAPIKey) error {

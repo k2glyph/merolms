@@ -44,7 +44,7 @@ var (
 		UserSettingsKeyName: "event_notification_new_comment",
 		DefaultSettingValue: strconv.Itoa(int(NotificationChannelWeb | NotificationChannelEmail)),
 		RequiresSubscriptionUserRoles: []Role{
-			RoleVisitor,
+			RoleLearner,
 		},
 		DefaultEnabledUserRoles: []Role{
 			RoleAdministrator,
@@ -57,12 +57,12 @@ var (
 		UserSettingsKeyName: "event_notification_change_status",
 		DefaultSettingValue: strconv.Itoa(int(NotificationChannelWeb | NotificationChannelEmail)),
 		RequiresSubscriptionUserRoles: []Role{
-			RoleVisitor,
+			RoleLearner,
 		},
 		DefaultEnabledUserRoles: []Role{
 			RoleAdministrator,
 			RoleCollaborator,
-			RoleVisitor,
+			RoleLearner,
 		},
 		Validate: notificationEventValidation,
 	}

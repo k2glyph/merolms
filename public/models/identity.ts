@@ -40,7 +40,7 @@ export enum UserStatus {
 }
 
 export enum UserRole {
-  Visitor = "visitor",
+  Learner = "learner",
   Collaborator = "collaborator",
   Administrator = "administrator",
 }

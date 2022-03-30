@@ -27,7 +27,7 @@ const UserListItem = (props: UserListItemProps) => {
   const admin = props.user.role === UserRole.Administrator && <span>administrator</span>
   const collaborator = props.user.role === UserRole.Collaborator && <span>collaborator</span>
   const blocked = props.user.status === UserStatus.Blocked && <span className="text-red-700">blocked</span>
-  const isVisitor = props.user.role === UserRole.Visitor
+  const isLearner = props.user.role === UserRole.Learner
 
   const actionSelected = (actionName: string) => () => {
     props.onAction(actionName, props.user)
@@ -46,13 +46,13 @@ const UserListItem = (props: UserListItemProps) => {
       </HStack>
       {Meroedu.session.user.id !== props.user.id && Meroedu.session.user.isAdministrator && (
         <Dropdown renderHandle={<Icon sprite={IconDotsHorizontal} width="16" height="16" />}>
-          {!blocked && (!!collaborator || isVisitor) && (
+          {!blocked && (!!collaborator || isLearner) && (
             <Dropdown.ListItem onClick={actionSelected("to-administrator")}>Promote to Administrator</Dropdown.ListItem>
           )}
-          {!blocked && (!!admin || isVisitor) && <Dropdown.ListItem onClick={actionSelected("to-collaborator")}>Promote to Collaborator</Dropdown.ListItem>}
-          {!blocked && (!!collaborator || !!admin) && <Dropdown.ListItem onClick={actionSelected("to-visitor")}>Demote to Visitor</Dropdown.ListItem>}
-          {isVisitor && !blocked && <Dropdown.ListItem onClick={actionSelected("block")}>Block User</Dropdown.ListItem>}
-          {isVisitor && !!blocked && <Dropdown.ListItem onClick={actionSelected("unblock")}>Unblock User</Dropdown.ListItem>}
+          {!blocked && (!!admin || isLearner) && <Dropdown.ListItem onClick={actionSelected("to-collaborator")}>Promote to Collaborator</Dropdown.ListItem>}
+          {!blocked && (!!collaborator || !!admin) && <Dropdown.ListItem onClick={actionSelected("to-learner")}>Demote to Learner</Dropdown.ListItem>}
+          {isLearner && !blocked && <Dropdown.ListItem onClick={actionSelected("block")}>Block User</Dropdown.ListItem>}
+          {isLearner && !!blocked && <Dropdown.ListItem onClick={actionSelected("unblock")}>Unblock User</Dropdown.ListItem>}
         </Dropdown>
       )}
     </HStack>
@@ -111,8 +111,8 @@ export default class ManageMembersPage extends AdminBasePage<ManageMembersPagePr
 
     if (actionName === "to-collaborator") {
       await changeRole(UserRole.Collaborator)
-    } else if (actionName === "to-visitor") {
-      await changeRole(UserRole.Visitor)
+    } else if (actionName === "to-learner") {
+      await changeRole(UserRole.Learner)
     } else if (actionName === "to-administrator") {
       await changeRole(UserRole.Administrator)
     } else if (actionName === "block") {
@@ -132,7 +132,7 @@ export default class ManageMembersPage extends AdminBasePage<ManageMembersPagePr
       return 0
     }
 
-    if (right.role !== UserRole.Visitor) {
+    if (right.role !== UserRole.Learner) {
       return 1
     }
     return -1
@@ -179,6 +179,9 @@ export default class ManageMembersPage extends AdminBasePage<ManageMembersPagePr
           </li>
           <li>
             <strong>Collaborators</strong> can edit and manage content, but not permissions and settings.
+          </li>
+          <li>
+            <strong>Learner</strong> can enroll learn content created by collaborator but not edit, manage content, permissions and settings
           </li>
           <li>
             <strong>Blocked</strong> users are unable to log into this site.

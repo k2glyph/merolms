@@ -17,7 +17,7 @@ export default class InvitationsPage extends AdminBasePage<any, InvitationsPageS
   public id = "p-admin-invitations"
   public name = "invitations"
   public title = "Invitations"
-  public subtitle = "Invite people to share their feedback"
+  public subtitle = "Invite people to collaborate, learn & development"
 
   constructor(props: any) {
     super(props)
@@ -26,7 +26,7 @@ export default class InvitationsPage extends AdminBasePage<any, InvitationsPageS
       subject: `[${Meroedu.session.tenant.name}] We would like to hear from you!`,
       message: `Hi,
 
-We are inviting you to join the ${Meroedu.session.tenant.name} feedback site, a place where you can vote, discuss and share your ideas and thoughts on how to improve our services!
+We are inviting you to join the ${Meroedu.session.tenant.name} learning site, a place where you can learn, discuss and share your ideas and thoughts on how to improve our services!
 
 Click the link below to join!
 

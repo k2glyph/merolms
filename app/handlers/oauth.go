@@ -110,7 +110,7 @@ func OAuthToken() web.HandlerFunc {
 					Name:   oauthUser.Result.Name,
 					Tenant: c.Tenant(),
 					Email:  oauthUser.Result.Email,
-					Role:   enum.RoleVisitor,
+					Role:   enum.RoleLearner,
 					Providers: []*entity.UserProvider{
 						{
 							UID:  oauthUser.Result.ID,

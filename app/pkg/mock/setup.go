@@ -16,7 +16,7 @@ var AvengersTenant *entity.Tenant
 // JonSnow is a mocked user (administrator)
 var JonSnow *entity.User
 
-// AryaStark is a mocked user (visitor)
+// AryaStark is a mocked user (learner)
 var AryaStark *entity.User
 
 func init() {
@@ -79,6 +79,6 @@ func seed() {
 		Email:  "arya.stark@got.com",
 		Tenant: DemoTenant,
 		Status: enum.UserActive,
-		Role:   enum.RoleVisitor,
+		Role:   enum.RoleLearner,
 	}
 }

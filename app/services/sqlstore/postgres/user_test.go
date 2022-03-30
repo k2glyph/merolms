@@ -244,14 +244,14 @@ func TestUserStorage_ChangeRole(t *testing.T) {
 
 	err := bus.Dispatch(demoTenantCtx, &cmd.ChangeUserRole{
 		UserID: jonSnow.ID,
-		Role:   enum.RoleVisitor,
+		Role:   enum.RoleLearner,
 	})
 	Expect(err).IsNil()
 
 	getUser := &query.GetUserByEmail{Email: "jon.snow@got.com"}
 	err = bus.Dispatch(demoTenantCtx, getUser)
 	Expect(err).IsNil()
-	Expect(getUser.Result.Role).Equals(enum.RoleVisitor)
+	Expect(getUser.Result.Role).Equals(enum.RoleLearner)
 }
 
 func TestUserStorage_ChangeEmail(t *testing.T) {

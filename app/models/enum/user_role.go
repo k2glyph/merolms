@@ -4,8 +4,8 @@ package enum
 type Role int
 
 const (
-	//RoleVisitor is the basic role for every user
-	RoleVisitor Role = 1
+	//RoleLearner is the basic role for every user
+	RoleLearner Role = 1
 	//RoleCollaborator has limited access to administrative console
 	RoleCollaborator Role = 2
 	//RoleAdministrator has full access to administrative console
@@ -13,13 +13,13 @@ const (
 )
 
 var roleIDs = map[Role]string{
-	RoleVisitor:       "visitor",
+	RoleLearner:       "learner",
 	RoleCollaborator:  "collaborator",
 	RoleAdministrator: "administrator",
 }
 
 var roleNames = map[string]Role{
-	"visitor":       RoleVisitor,
+	"learner":       RoleLearner,
 	"collaborator":  RoleCollaborator,
 	"administrator": RoleAdministrator,
 }

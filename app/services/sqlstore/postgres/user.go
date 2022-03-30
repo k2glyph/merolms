@@ -112,7 +112,7 @@ func deleteCurrentUser(ctx context.Context, c *cmd.DeleteCurrentUser) error {
 	return using(ctx, func(trx *dbx.Trx, tenant *entity.Tenant, user *entity.User) error {
 		if _, err := trx.Execute(
 			"UPDATE users SET role = $3, status = $4, name = '', email = '', api_key = null, api_key_date = null WHERE id = $1 AND tenant_id = $2",
-			user.ID, tenant.ID, enum.RoleVisitor, enum.UserDeleted,
+			user.ID, tenant.ID, enum.RoleLearner, enum.UserDeleted,
 		); err != nil {
 			return errors.Wrap(err, "failed to delete current user")
 		}

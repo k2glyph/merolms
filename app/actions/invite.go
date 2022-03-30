@@ -52,8 +52,8 @@ func (action *InviteUsers) Validate(ctx context.Context, user *entity.User) *val
 
 		if len(action.Recipients) == 0 {
 			result.AddFieldFailure("recipients", "At least one recipient is required.")
-		} else if len(action.Recipients) > 30 {
-			result.AddFieldFailure("recipients", "Too many recipients. We limit at 30 recipients per invite.")
+		} else if len(action.Recipients) > 2500 {
+			result.AddFieldFailure("recipients", "Too many recipients. We limit at 1000 recipients per invite.")
 		}
 
 		for _, email := range action.Recipients {
