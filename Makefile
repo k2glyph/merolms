@@ -63,7 +63,7 @@ test-e2e-ui: ## Run all E2E tests
 ##@ Running (Watch Mode)
 
 watch:
-	make -j4 watch-server
+	make -j4 watch-server watch-ui
 
 watch-server: migrate ## Build and run server in watch mode
 	air -c air.conf

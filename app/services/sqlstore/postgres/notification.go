@@ -15,24 +15,24 @@ import (
 	"github.com/lib/pq"
 )
 
-func purgeExpiredNotifications(ctx context.Context, c *cmd.PurgeExpiredNotifications) error {
-	trx, err := dbx.BeginTx(ctx)
-	if err != nil {
-		return errors.Wrap(err, "failed to open transaction")
-	}
+// func purgeExpiredNotifications(ctx context.Context, c *cmd.PurgeExpiredNotifications) error {
+// 	trx, err := dbx.BeginTx(ctx)
+// 	if err != nil {
+// 		return errors.Wrap(err, "failed to open transaction")
+// 	}
 
-	count, err := trx.Execute("DELETE FROM notifications WHERE CREATED_AT <= NOW() - INTERVAL '365 days'")
-	if err != nil {
-		return errors.Wrap(err, "failed to delete expired notifications")
-	}
+// 	count, err := trx.Execute("DELETE FROM notifications WHERE CREATED_AT <= NOW() - INTERVAL '365 days'")
+// 	if err != nil {
+// 		return errors.Wrap(err, "failed to delete expired notifications")
+// 	}
 
-	if err = trx.Commit(); err != nil {
-		return errors.Wrap(err, "failed commit transaction")
-	}
+// 	if err = trx.Commit(); err != nil {
+// 		return errors.Wrap(err, "failed commit transaction")
+// 	}
 
-	c.NumOfDeletedNotifications = int(count)
-	return nil
-}
+// 	c.NumOfDeletedNotifications = int(count)
+// 	return nil
+// }
 
 func markAllNotificationsAsRead(ctx context.Context, c *cmd.MarkAllNotificationsAsRead) error {
 	return using(ctx, func(trx *dbx.Trx, tenant *entity.Tenant, user *entity.User) error {

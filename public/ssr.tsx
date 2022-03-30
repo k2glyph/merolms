@@ -26,12 +26,10 @@ const messages: { [key: string]: any } = {
 // But at least only public routes will be here, as routes behind authentication won't be crawled anyway
 const pages: { [key: string]: any } = {
   "Home/Home.page": require(`./pages/Home/Home.page`),
-  "ShowPost/ShowPost.page": require(`./pages/ShowPost/ShowPost.page`),
   "SignIn/SignIn.page": require(`./pages/SignIn/SignIn.page`),
   "SignUp/SignUp.page": require(`./pages/SignUp/SignUp.page`),
   "SignUp/PendingActivation.page": require(`./pages/SignUp/PendingActivation.page`),
   "Legal/Legal.page": require(`./pages/Legal/Legal.page`),
-  "DesignSystem/DesignSystem.page": require(`./pages/DesignSystem/DesignSystem.page`),
   "Error/Maintenance.page": require(`./pages/Error/Maintenance.page`),
   "Error/Error401.page": require(`./pages/Error/Error401.page`),
   "Error/Error403.page": require(`./pages/Error/Error403.page`),

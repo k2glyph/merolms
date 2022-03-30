@@ -31,7 +31,7 @@ func (s Service) Enabled() bool {
 func (s Service) Init() {
 	bus.AddHandler(storeEvent)
 
-	bus.AddHandler(purgeExpiredNotifications)
+	// bus.AddHandler(purgeExpiredNotifications)
 
 	bus.AddHandler(markAllNotificationsAsRead)
 	bus.AddHandler(markNotificationAsRead)
