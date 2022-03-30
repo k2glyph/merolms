@@ -88,6 +88,10 @@ func (s Service) Init() {
 
 	bus.AddHandler(setSystemSettings)
 	bus.AddHandler(getSystemSettings)
+
+	// Course
+	bus.AddHandler(getAllCourses)
+	bus.AddHandler(countCoursePerStatus)
 }
 
 type SqlHandler func(trx *dbx.Trx, tenant *entity.Tenant, user *entity.User) error

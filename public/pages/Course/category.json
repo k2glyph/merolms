@@ -1,0 +1,154 @@
+{
+  "categories": [
+    {
+      "id": 2576,
+      "title": "Intership - Engineering",
+      "is_shared": false
+    },
+    {
+      "id": 2577,
+      "title": "Internship_Engineering",
+      "is_shared": false
+    },
+    {
+      "id": 2418,
+      "title": "Learning",
+      "is_shared": false
+    },
+    {
+      "id": 2233,
+      "title": "Talent Aquisition",
+      "is_shared": false
+    },
+    {
+      "id": 2228,
+      "title": "Animation",
+      "is_shared": false
+    },
+    {
+      "id": 2226,
+      "title": "Docker",
+      "is_shared": false
+    },
+    {
+      "id": 2224,
+      "title": "Microservices",
+      "is_shared": false
+    },
+    {
+      "id": 2090,
+      "title": "Machine Learning",
+      "is_shared": false
+    },
+    {
+      "id": 300,
+      "title": "AWS",
+      "is_shared": false
+    },
+    {
+      "id": 2139,
+      "title": "General",
+      "is_shared": false
+    },
+    {
+      "id": 2098,
+      "title": "Graphic Design",
+      "is_shared": false
+    },
+    {
+      "id": 2106,
+      "title": "Performance management",
+      "is_shared": false
+    },
+    {
+      "id": 2090,
+      "title": "Machine Learning",
+      "is_shared": false
+    },
+    {
+      "id": 2053,
+      "title": "Learning Organization",
+      "is_shared": false
+    },
+    {
+      "id": 1092,
+      "title": "Sales",
+      "is_shared": false
+    },
+    {
+      "id": 1092,
+      "title": "Sales",
+      "is_shared": false
+    },
+    {
+      "id": 1283,
+      "title": "AWS - Sales",
+      "is_shared": false
+    },
+    {
+      "id": 1081,
+      "title": "ATC Induction",
+      "is_shared": false
+    },
+    {
+      "id": 1092,
+      "title": "Sales",
+      "is_shared": false
+    },
+    {
+      "id": 1283,
+      "title": "AWS - Sales",
+      "is_shared": false
+    },
+    {
+      "id": 1082,
+      "title": "Soft Skills",
+      "is_shared": false
+    },
+    {
+      "id": 1092,
+      "title": "Sales",
+      "is_shared": false
+    },
+    {
+      "id": 65,
+      "title": "SAFe",
+      "is_shared": false
+    },
+    {
+      "id": 65,
+      "title": "SAFe",
+      "is_shared": false
+    },
+    {
+      "id": 1965,
+      "title": "Backend Developer",
+      "is_shared": false
+    },
+    {
+      "id": 1965,
+      "title": "Backend Developer",
+      "is_shared": false
+    },
+    {
+      "id": 1965,
+      "title": "Backend Developer",
+      "is_shared": false
+    },
+    {
+      "id": 1965,
+      "title": "Backend Developer",
+      "is_shared": false
+    },
+    {
+      "id": 1965,
+      "title": "Backend Developer",
+      "is_shared": false
+    },
+    {
+      "id": 1331,
+      "title": "AWS CSA – Associate - Oct 2nd - Oct 10th",
+      "is_shared": false
+    }
+  ]
+}

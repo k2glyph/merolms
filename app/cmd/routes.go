@@ -114,6 +114,8 @@ func routes(r *web.Engine) *web.Engine {
 		//From this step, a User is required
 		ui.Use(middlewares.IsAuthenticated())
 
+		ui.Get("/user/courses", handlers.CoursesList())
+
 		ui.Get("/settings", handlers.UserSettings())
 		ui.Get("/notifications", handlers.Notifications())
 		ui.Get("/notifications/:id", handlers.ReadNotification())
