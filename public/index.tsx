@@ -1,5 +1,5 @@
 import "@meroedu/assets/styles/index.scss"
-import 'semantic-ui-css/semantic.min.css'
+import "semantic-ui-css/semantic.min.css"
 
 import React, { Suspense } from "react"
 import ReactDOM from "react-dom"
@@ -45,7 +45,7 @@ const bootstrapApp = (i18n: I18n) => {
   })
 
   ReactDOM.render(
-    <React.StrictMode>
+    <>
       <ErrorBoundary onError={logProductionError}>
         <I18nProvider i18n={i18n}>
           <MeroeduContext.Provider value={meroedu}>
@@ -55,7 +55,7 @@ const bootstrapApp = (i18n: I18n) => {
           </MeroeduContext.Provider>
         </I18nProvider>
       </ErrorBoundary>
-    </React.StrictMode>,
+    </>,
     document.getElementById("root")
   )
 }

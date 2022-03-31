@@ -1,5 +1,4 @@
 import "./Home.page.scss"
-
 import React from "react"
 import { Header } from "@meroedu/components"
 

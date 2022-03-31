@@ -2,7 +2,7 @@ node_modules
 app
 dist/
 **/*.md
-**/*.html
+#**/*.html
 **/*.config.js
 .github/
 .eslintrc.js
