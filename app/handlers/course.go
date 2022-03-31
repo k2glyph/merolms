@@ -34,11 +34,13 @@ func CoursesList() web.HandlerFunc {
 	}
 }
 
-// func AdminDashboard() web.HandlerFunc {
-// 	return func(c *web.Context) error {
-// 		c.SetCanonicalURL("")
-// 		return c.Page(http.StatusOK, web.Props{
-// 			Page: "AdminDashboard/AdminDashboard.page",
-// 		})
-// 	}
-// }
+func CoursesCreate() web.HandlerFunc {
+	return func(c *web.Context) error {
+
+		c.SetCanonicalURL("")
+
+		return c.Page(http.StatusOK, web.Props{
+			Page: "Course/CreateCourse.page",
+		})
+	}
+}

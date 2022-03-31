@@ -125,7 +125,7 @@ const SignUpPage = () => {
       <div className="h-20 text-center mb-4">
         <img className="logo" alt="Logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" />
       </div>
-    
+
       <h3 className="text-display mb-2">1. Who are you?</h3>
       <DisplayError fields={["token"]} error={error} />
 

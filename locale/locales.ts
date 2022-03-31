@@ -11,7 +11,7 @@ const locales: { [key: string]: Locale } = {
   "pt-BR": {
     text: "🇧🇷 Portuguese (Brazilian)",
     translated: 100,
-  }
+  },
 }
 
 export default locales

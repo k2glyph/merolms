@@ -4,7 +4,7 @@ export const getTotalUnreadNotifications = async (): Promise<Result<number>> => 
   return {
     ok: true,
     error: undefined,
-    data: 0
+    data: 0,
   }
   // return http.get<{ total: number }>("/_api/notifications/unread/total").then((result) => {
   //   return {

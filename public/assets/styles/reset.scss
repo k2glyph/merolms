@@ -1,3 +1,9 @@
+$color-black: hsl(240, 1%, 20%);
+$color-yellow: hsl(50, 100%, 50%);
+$color-purple-dark: #10162f;
+$color-purple: hsl(252, 87%, 48%);
+$color-bg-cream: #faf8f6;
+
 html,
 body {
   height: 100%;
@@ -17,6 +23,7 @@ body {
   min-width: 320px;
   color: get("colors.gray.900");
   background-color: get("colors.white");
+  background-color: $color-bg-cream;
   font-size: get("font.size.base");
   font-family: $font-base;
 }

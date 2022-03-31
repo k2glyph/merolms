@@ -37,7 +37,11 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
     const { error, errorInfo } = this.state
 
     if (error && errorInfo) {
-      return <MeroeduContext.Consumer>{(meroedu) => <ErrorPage error={error} errorInfo={errorInfo} showDetails={!meroedu.isProduction()} />}</MeroeduContext.Consumer>
+      return (
+        <MeroeduContext.Consumer>
+          {(meroedu) => <ErrorPage error={error} errorInfo={errorInfo} showDetails={!meroedu.isProduction()} />}
+        </MeroeduContext.Consumer>
+      )
     } else {
       return this.props.children
     }

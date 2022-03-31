@@ -1,0 +1,11 @@
+node_modules
+app
+dist/
+**/*.md
+**/*.html
+**/*.config.js
+.github/
+.eslintrc.js
+.babelrc
+**/*.js
+locale/**/*.json

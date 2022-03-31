@@ -82,7 +82,8 @@ lint-server: ## Lint server code
 lint-ui: ## Lint ui code
 	npx eslint .
 
-
+format-ui: ## Format 
+	yarn prettier --write .
 
 ##@ Miscellaneous
 

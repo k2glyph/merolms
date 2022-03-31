@@ -10,7 +10,7 @@ import { I18nProvider } from "@lingui/react"
 // Locale files must be bundled for SSR to work synchronously
 const messages: { [key: string]: any } = {
   en: require(`../locale/en/client`),
-  "pt-BR": require(`../locale/pt-BR/client`)
+  "pt-BR": require(`../locale/pt-BR/client`),
 }
 
 // ESBuild doesn't support Dynamic Imports, so we need to map them statically
@@ -28,6 +28,8 @@ const pages: { [key: string]: any } = {
   "Error/Error410.page": require(`./pages/Error/Error410.page`),
   "Error/Error500.page": require(`./pages/Error/Error500.page`),
   "Error/NotInvited.page": require(`./pages/Error/NotInvited.page`),
+  "Course/Course.page": require(`./pages/Course/Course.page`),
+  "Course/CreateCourse.page": require(`./pages/Course/CreateCourse.page`),
 }
 
 function ssrRender(url: string, args: any) {

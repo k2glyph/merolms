@@ -9,7 +9,6 @@ import { I18n } from "@lingui/core"
 import { I18nProvider } from "@lingui/react"
 import { AsyncPage } from "./AsyncPages"
 
-
 const Loading = () => (
   <div className="page">
     <Loader />

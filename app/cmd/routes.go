@@ -115,6 +115,7 @@ func routes(r *web.Engine) *web.Engine {
 		ui.Use(middlewares.IsAuthenticated())
 
 		ui.Get("/user/courses", handlers.CoursesList())
+		ui.Get("/user/courses/create", handlers.CoursesCreate())
 
 		ui.Get("/settings", handlers.UserSettings())
 		ui.Get("/notifications", handlers.Notifications())
