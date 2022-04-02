@@ -24,7 +24,6 @@ build-server: ## Build server
 	go build -ldflags '-s -w $(LDFLAGS)' -o meroedu .
 
 build-ui: ## Build all UI assets
-	cd frontend
 	NODE_ENV=production npx webpack-cli
 
 build-ssr: ## Build SSR script and locales
@@ -70,7 +69,6 @@ watch-server: migrate ## Build and run server in watch mode
 	air -c air.conf
 
 watch-ui: ## Build and run server in watch mode
-	cd frontend/
 	npx webpack-cli -w
 
 
