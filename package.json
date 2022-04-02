@@ -4,15 +4,16 @@
   "repository": "https://github.com/k2glyph/meroedu",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.8.2",
+    "@emotion/styled": "^11.8.1",
     "@lingui/react": "3.13.2",
+    "@mui/material": "^5.5.3",
     "dompurify": "2.3.5",
     "marked": "4.0.12",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-textarea-autosize": "8.3.3",
-    "react-toastify": "8.1.1",
-    "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^2.1.2"
+    "react-toastify": "8.1.1"
   },
   "devDependencies": {
     "@babel/core": "7.17.0",
@@ -24,7 +25,6 @@
     "@lingui/cli": "3.13.2",
     "@lingui/loader": "3.13.2",
     "@lingui/macro": "3.13.2",
-    "@semantic-ui-react/css-patch": "^1.0.0",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@types/debug": "4.1.7",
@@ -36,7 +36,6 @@
     "@types/react": "17.0.39",
     "@types/react-dom": "17.0.11",
     "@types/react-textarea-autosize": "4.3.6",
-    "@types/semantic-ui": "^2.2.7",
     "@types/styled-components": "^5.1.24",
     "@typescript-eslint/eslint-plugin": "5.10.2",
     "@typescript-eslint/parser": "5.10.2",
@@ -122,7 +121,6 @@
     "node": "16.x || 17.x"
   },
   "scripts": {
-    "heroku-postbuild": "make build-ssr && make build-ui",
-    "postinstall": "semantic-ui-css-patch"
+    "heroku-postbuild": "make build-ssr && make build-ui"
   }
 }
