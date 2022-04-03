@@ -8,6 +8,7 @@ import { classSet, Meroedu, MeroeduContext, actions, activateI18N } from "@meroe
 import { I18n } from "@lingui/core"
 import { I18nProvider } from "@lingui/react"
 import { AsyncPage } from "./AsyncPages"
+import Pager from "@meroedu/components/Pager/Pager"
 
 const Loading = () => (
   <div className="page">
@@ -50,7 +51,11 @@ const bootstrapApp = (i18n: I18n) => {
           <MeroeduContext.Provider value={meroedu}>
             <DevBanner />
             <ReadOnlyNotice />
-            <Suspense fallback={<Loading />}>{React.createElement(component, meroedu.session.props)}</Suspense>
+            <Suspense fallback={<Loading />}>
+              <Pager>
+                {React.createElement(component, meroedu.session.props)}
+              </Pager>
+            </Suspense>
           </MeroeduContext.Provider>
         </I18nProvider>
       </ErrorBoundary>
