@@ -9,6 +9,8 @@ import { I18n } from "@lingui/core"
 import { I18nProvider } from "@lingui/react"
 import { AsyncPage } from "./AsyncPages"
 import Pager from "@meroedu/components/Pager/Pager"
+import { ThemeProvider } from "@mui/material"
+import themeOverrides from "./themeOverrides";
 
 const Loading = () => (
   <div className="page">
@@ -46,6 +48,7 @@ const bootstrapApp = (i18n: I18n) => {
 
   ReactDOM.render(
     <>
+     {/* <ThemeProvider overrides={themeOverrides}> */}
       <ErrorBoundary onError={logProductionError}>
         <I18nProvider i18n={i18n}>
           <MeroeduContext.Provider value={meroedu}>
@@ -59,6 +62,7 @@ const bootstrapApp = (i18n: I18n) => {
           </MeroeduContext.Provider>
         </I18nProvider>
       </ErrorBoundary>
+      {/* </ThemeProvider> */}
     </>,
     document.getElementById("root")
   )
