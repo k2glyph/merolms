@@ -1,7 +1,7 @@
 import "./AdminBasePage.scss"
 
 import React from "react"
-import { Header, PageTitle } from "@meroedu/components"
+import { PageTitle } from "@meroedu/components"
 import { SideMenu, SideMenuToggler } from "./SideMenu"
 import { HStack } from "@meroedu/components/layout"
 
@@ -16,7 +16,7 @@ interface AdminPageContainerProps {
 export const AdminPageContainer = (props: AdminPageContainerProps) => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div id={props.id} className="page container">
         <HStack justify="between">
           <PageTitle title={props.title} subtitle={props.subtitle} />

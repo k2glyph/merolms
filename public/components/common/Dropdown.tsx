@@ -89,9 +89,9 @@ export const Dropdown = (props: DropdownProps) => {
   return (
     <DropdownContext.Provider value={{ close }}>
       <div ref={node} className="c-dropdown">
-        <button type="button" className="c-dropdown__handle" onClick={toggleIsOpen}>
+        <div className="c-dropdown__handle" onClick={toggleIsOpen}>
           {props.renderHandle}
-        </button>
+        </div>
         {isOpen && <div className={listClassName}>{props.children}</div>}
       </div>
     </DropdownContext.Provider>

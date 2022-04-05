@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Modal, Form, Button, PageTitle, Input, Select, SelectOption, ImageUploader, Header } from "@meroedu/components"
+import { Modal, Form, Button, PageTitle, Input, Select, SelectOption, ImageUploader } from "@meroedu/components"
 
 import { UserSettings, UserAvatarType, ImageUpload } from "@meroedu/models"
 import { Failure, actions, Meroedu } from "@meroedu/services"
@@ -111,7 +111,7 @@ export default class MySettingsPage extends React.Component<MySettingsPageProps,
 
     return (
       <>
-        <Header />
+        {/* <Header /> */}
         <div id="p-my-settings" className="page container">
           <Modal.Window isOpen={this.state.showModal} onClose={this.closeModal}>
             <Modal.Header>

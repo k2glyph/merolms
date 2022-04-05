@@ -1,14 +1,16 @@
-import React from "react"
+import React, { FC } from "react"
 import { useMeroedu } from "@meroedu/hooks"
-import { Avatar, Dropdown } from "./common"
+import { Avatar as MeroAvatar, Dropdown } from "./common"
 import { Trans } from "@lingui/macro"
+import { Box, Button, Hidden, lighten, Typography } from "@mui/material"
+import ExpandMoreTwoToneIcon from "@mui/icons-material/ExpandMoreTwoTone"
+import { styled } from "@mui/material/styles"
 
 export const UserMenu = () => {
   const meroedu = useMeroedu()
-
   return (
     <div className="c-menu-user">
-      <Dropdown position="left" renderHandle={<Avatar user={meroedu.session.user} />}>
+      <Dropdown position="left" renderHandle={<HeaderUserbox user={meroedu.session.user} />}>
         <div className="p-2 text-medium uppercase">{meroedu.session.user.name}</div>
         <Dropdown.ListItem href="/settings">
           <Trans id="menu.mysettings">My Settings</Trans>
@@ -33,3 +35,52 @@ export const UserMenu = () => {
     </div>
   )
 }
+interface HeaderUserboxProps {
+  user: any
+}
+const HeaderUserbox: FC<HeaderUserboxProps> = (props) => {
+  return (
+    <>
+      <UserBoxButton color="secondary">
+        <MeroAvatar user={props.user} />
+        {/* <Avatar variant="rounded" alt={props.name} src={props.user.avatarURL} /> */}
+        <Hidden mdDown>
+          <UserBoxText>
+            <UserBoxLabel variant="body1">{props.user.name}</UserBoxLabel>
+            <UserBoxDescription variant="body2">{props.user.role}</UserBoxDescription>
+          </UserBoxText>
+        </Hidden>
+        <Hidden smDown>
+          <ExpandMoreTwoToneIcon sx={{ ml: 1 }} />
+        </Hidden>
+      </UserBoxButton>
+    </>
+  )
+}
+const UserBoxButton = styled(Button)(
+  ({ theme }) => `
+        padding-left: ${theme.spacing(1)};
+        padding-right: ${theme.spacing(1)};
+`
+)
+
+const UserBoxText = styled(Box)(
+  ({ theme }) => `
+        text-align: left;
+        padding-left: ${theme.spacing(1)};
+`
+)
+
+const UserBoxLabel = styled(Typography)(
+  ({ theme }) => `
+        font-weight: ${theme.typography.fontWeightBold};
+        color: ${theme.palette.secondary.main};
+        display: block;
+`
+)
+
+const UserBoxDescription = styled(Typography)(
+  ({ theme }) => `
+        color: ${lighten(theme.palette.secondary.main, 0.5)}
+`
+)

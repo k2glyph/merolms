@@ -9,8 +9,10 @@ import { I18n } from "@lingui/core"
 import { I18nProvider } from "@lingui/react"
 import { AsyncPage } from "./AsyncPages"
 import Pager from "@meroedu/components/Pager/Pager"
-import { ThemeProvider } from "@mui/material"
-import themeOverrides from "./themeOverrides";
+import ThemeProvider from "@meroedu/theme/ThemeProvider"
+import "nprogress/nprogress.css"
+import { CssBaseline } from "@mui/material"
+import { SidebarProvider } from "@meroedu/contexts/SidebarContext"
 
 const Loading = () => (
   <div className="page">
@@ -45,25 +47,25 @@ const bootstrapApp = (i18n: I18n) => {
     "is-authenticated": meroedu.session.isAuthenticated,
     "is-staff": meroedu.session.isAuthenticated && meroedu.session.user.isCollaborator,
   })
-
   ReactDOM.render(
-    <>
-     {/* <ThemeProvider overrides={themeOverrides}> */}
+    <React.StrictMode>
       <ErrorBoundary onError={logProductionError}>
         <I18nProvider i18n={i18n}>
           <MeroeduContext.Provider value={meroedu}>
-            <DevBanner />
-            <ReadOnlyNotice />
-            <Suspense fallback={<Loading />}>
-              <Pager>
-                {React.createElement(component, meroedu.session.props)}
-              </Pager>
-            </Suspense>
+            <ThemeProvider>
+              <CssBaseline />
+              <DevBanner />
+              <ReadOnlyNotice />
+              <Suspense fallback={<Loading />}>
+                <SidebarProvider>
+                  <Pager>{React.createElement(component, meroedu.session.props)}</Pager>
+                </SidebarProvider>
+              </Suspense>
+            </ThemeProvider>
           </MeroeduContext.Provider>
         </I18nProvider>
       </ErrorBoundary>
-      {/* </ThemeProvider> */}
-    </>,
+    </React.StrictMode>,
     document.getElementById("root")
   )
 }
