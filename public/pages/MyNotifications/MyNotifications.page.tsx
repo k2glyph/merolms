@@ -1,7 +1,7 @@
 import React from "react"
 
 import { Notification } from "@meroedu/models"
-import { Header, Markdown, Moment, PageTitle } from "@meroedu/components"
+import { Markdown, Moment, PageTitle } from "@meroedu/components"
 import { actions, Meroedu } from "@meroedu/services"
 import { HStack, VStack } from "@meroedu/components/layout"
 import { t, Trans } from "@lingui/macro"
@@ -60,7 +60,6 @@ export default class MyNotificationsPage extends React.Component<MyNotifications
   public render() {
     return (
       <>
-        <Header />
         <div id="p-my-notifications" className="page container">
           <PageTitle
             title={t({ id: "mynotifications.page.title", message: "Notifications" })}

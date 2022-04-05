@@ -13,6 +13,7 @@ import ThemeProvider from "@meroedu/theme/ThemeProvider"
 import "nprogress/nprogress.css"
 import { CssBaseline } from "@mui/material"
 import { SidebarProvider } from "@meroedu/contexts/SidebarContext"
+import { BrowserRouter } from "react-router-dom"
 
 const Loading = () => (
   <div className="page">
@@ -58,7 +59,9 @@ const bootstrapApp = (i18n: I18n) => {
               <ReadOnlyNotice />
               <Suspense fallback={<Loading />}>
                 <SidebarProvider>
-                  <Pager>{React.createElement(component, meroedu.session.props)}</Pager>
+                  <BrowserRouter>
+                    <Pager>{React.createElement(component, meroedu.session.props)}</Pager>
+                  </BrowserRouter>
                 </SidebarProvider>
               </Suspense>
             </ThemeProvider>

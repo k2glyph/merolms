@@ -1,9 +1,10 @@
-import React, { FC, ReactNode, useState } from "react"
+import React, { FC, ReactNode, useState, useContext } from "react"
+import { NavLink as RouterLink } from "react-router-dom"
 import clsx from "clsx"
-// import { SidebarContext } from "@meroedu/contexts/SidebarContext"
+import { SidebarContext } from "@meroedu/contexts/SidebarContext"
 
 import PropTypes from "prop-types"
-import { Button, Collapse, ListItem } from "@mui/material"
+import { Button, Badge, Collapse, ListItem } from "@mui/material"
 
 import ExpandLessTwoToneIcon from "@mui/icons-material/ExpandLessTwoTone"
 import ExpandMoreTwoToneIcon from "@mui/icons-material/ExpandMoreTwoTone"
@@ -19,9 +20,9 @@ interface SidebarMenuItemProps {
 }
 
 const SidebarMenuItem: FC<SidebarMenuItemProps> = ({ children, link, icon: Icon, badge, open: openParent, active, name, ...rest }) => {
-  const [menuToggle, setMenuToggle] = useState(openParent)
+  const [menuToggle, setMenuToggle] = useState<boolean>(openParent)
 
-  // const { toggleSidebar } = useContext(SidebarContext)
+  const { toggleSidebar } = useContext(SidebarContext)
 
   const toggleMenu = (): void => {
     setMenuToggle((Open) => !Open)
@@ -45,11 +46,10 @@ const SidebarMenuItem: FC<SidebarMenuItemProps> = ({ children, link, icon: Icon,
 
   return (
     <ListItem component="div" key={name} {...rest}>
-      {/* <Button activeClassName="Mui-active"  onClick={toggleSidebar} to={link} startIcon={Icon && <Icon />}>
+      <Button activeClassName="Mui-active" component={RouterLink} onClick={toggleSidebar} to={link} startIcon={Icon && <Icon />}>
         {name}
         {badge && <Badge badgeContent={badge} />}
-      </Button> */}
-      <div>hello</div>
+      </Button>
     </ListItem>
   )
 }
