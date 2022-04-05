@@ -14,6 +14,7 @@ import "nprogress/nprogress.css"
 import { CssBaseline } from "@mui/material"
 import { SidebarProvider } from "@meroedu/contexts/SidebarContext"
 import { BrowserRouter } from "react-router-dom"
+import { HelmetProvider } from "react-helmet-async"
 
 const Loading = () => (
   <div className="page">
@@ -52,20 +53,22 @@ const bootstrapApp = (i18n: I18n) => {
     <React.StrictMode>
       <ErrorBoundary onError={logProductionError}>
         <I18nProvider i18n={i18n}>
-          <MeroeduContext.Provider value={meroedu}>
-            <ThemeProvider>
-              <CssBaseline />
-              <DevBanner />
-              <ReadOnlyNotice />
-              <Suspense fallback={<Loading />}>
-                <SidebarProvider>
-                  <BrowserRouter>
-                    <Pager>{React.createElement(component, meroedu.session.props)}</Pager>
-                  </BrowserRouter>
-                </SidebarProvider>
-              </Suspense>
-            </ThemeProvider>
-          </MeroeduContext.Provider>
+          <HelmetProvider>
+            <MeroeduContext.Provider value={meroedu}>
+              <ThemeProvider>
+                <CssBaseline />
+                <DevBanner />
+                <ReadOnlyNotice />
+                <Suspense fallback={<Loading />}>
+                  <SidebarProvider>
+                    <BrowserRouter>
+                      <Pager>{React.createElement(component, meroedu.session.props)}</Pager>
+                    </BrowserRouter>
+                  </SidebarProvider>
+                </Suspense>
+              </ThemeProvider>
+            </MeroeduContext.Provider>
+          </HelmetProvider>
         </I18nProvider>
       </ErrorBoundary>
     </React.StrictMode>,
