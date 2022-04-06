@@ -21,16 +21,6 @@ export interface MenuItems {
 
 const menuItems: MenuItems[] = [
   {
-    heading: "Home",
-    items: [
-      {
-        name: "Home",
-        link: "/",
-        icon: DesignServicesTwoToneIcon,
-      },
-    ],
-  },
-  {
     heading: "Dashboard",
     items: [
       {

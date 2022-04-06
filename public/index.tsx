@@ -62,7 +62,8 @@ const bootstrapApp = (i18n: I18n) => {
                 <Suspense fallback={<Loading />}>
                   <SidebarProvider>
                     <BrowserRouter>
-                      <Pager>{React.createElement(component, meroedu.session.props)}</Pager>
+                      {meroedu.session.isAuthenticated && <Pager>{React.createElement(component, meroedu.session.props)}</Pager>}
+                      {!meroedu.session.isAuthenticated && React.createElement(component, meroedu.session.props)}
                     </BrowserRouter>
                   </SidebarProvider>
                 </Suspense>

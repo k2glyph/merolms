@@ -70,9 +70,6 @@ function Header() {
             <Trans id="action.signin">Sign in</Trans>
           </a>
         )}
-        {/* <Hidden lgUp> */}
-
-        {/* </Hidden> */}
       </Box>
       <SignInModal isOpen={isSignInModalOpen} onClose={hideModal} />
     </HeaderWrapper>

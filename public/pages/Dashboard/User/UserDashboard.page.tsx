@@ -41,7 +41,6 @@ function UserDashboardPage() {
           </Grid>
         </Grid>
       </Container>
-      <Footer />
     </>
   );
 }

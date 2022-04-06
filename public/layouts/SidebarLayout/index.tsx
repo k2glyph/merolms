@@ -14,6 +14,8 @@ const MainWrapper = styled(Box)(
         flex: 1 1 auto;
         display: flex;
         height: 100%;
+        width: 100%;
+        flex-direction: column;
         
 `
 )
@@ -35,9 +37,12 @@ const SidebarLayout: FC<SidebarLayoutProps> = ({ children }) => {
       <Sidebar />
       <MainWrapper>
         <Header />
-        <MainContent>{children}</MainContent>
+        <MainContent>
+          {children}
+          <Footer />
+        </MainContent>
+        
       </MainWrapper>
-      <Footer />
     </>
   )
 }
