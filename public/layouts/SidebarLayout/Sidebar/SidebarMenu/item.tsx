@@ -1,13 +1,15 @@
-import React, { FC, ReactNode, useState, useContext } from "react"
-import { NavLink as RouterLink } from "react-router-dom"
-import clsx from "clsx"
-import { SidebarContext } from "@meroedu/contexts/SidebarContext"
+import "./SideMenu.scss"
+import React, { FC, ReactNode, useState } from "react"
+// import { NavLink as RouterLink } from "react-router-dom"
+// import clsx from "clsx"
+// import { SidebarContext } from "@meroedu/contexts/SidebarContext"
 
 import PropTypes from "prop-types"
 import { Button, Badge, Collapse, ListItem } from "@mui/material"
 
 import ExpandLessTwoToneIcon from "@mui/icons-material/ExpandLessTwoTone"
 import ExpandMoreTwoToneIcon from "@mui/icons-material/ExpandMoreTwoTone"
+import { classSet } from "@meroedu/services"
 
 interface SidebarMenuItemProps {
   children?: ReactNode
@@ -20,19 +22,25 @@ interface SidebarMenuItemProps {
 }
 
 const SidebarMenuItem: FC<SidebarMenuItemProps> = ({ children, link, icon: Icon, badge, open: openParent, active, name, ...rest }) => {
+  // @ts-ignore
   const [menuToggle, setMenuToggle] = useState<boolean>(openParent)
 
-  const { toggleSidebar } = useContext(SidebarContext)
+  // const { toggleSidebar } = useContext(SidebarContext)
 
+const className = classSet({
+  "c-side-menu__item": true,
+  "c-side-menu__item--active": active,
+  "width": "100%"
+})
   const toggleMenu = (): void => {
     setMenuToggle((Open) => !Open)
   }
 
   if (children) {
     return (
-      <ListItem component="div" className="Mui-children" key={name} {...rest}>
+      <ListItem component="div" className="Mui-children " key={name} {...rest}>
         <Button
-          className={clsx({ "Mui-active": menuToggle })}
+          className={className}
           startIcon={Icon && <Icon />}
           endIcon={menuToggle ? <ExpandLessTwoToneIcon /> : <ExpandMoreTwoToneIcon />}
           onClick={toggleMenu}
@@ -43,13 +51,13 @@ const SidebarMenuItem: FC<SidebarMenuItemProps> = ({ children, link, icon: Icon,
       </ListItem>
     )
   }
-
+  
   return (
     <ListItem component="div" key={name} {...rest}>
-      <Button activeClassName="Mui-active" component={RouterLink} onClick={toggleSidebar} to={link} startIcon={Icon && <Icon />}>
+      <a href={link} className={className}>
         {name}
         {badge && <Badge badgeContent={badge} />}
-      </Button>
+      </a>
     </ListItem>
   )
 }

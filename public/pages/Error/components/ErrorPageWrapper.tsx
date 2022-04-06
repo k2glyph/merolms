@@ -1,5 +1,5 @@
 import React from "react"
-import { Header, TenantLogo } from "@meroedu/components"
+import { TenantLogo } from "@meroedu/components"
 import { useMeroedu } from "@meroedu/hooks"
 import { Trans } from "@lingui/macro"
 
@@ -14,7 +14,7 @@ export const ErrorPageWrapper = (props: ErrorPageWrapperProps) => {
 
   return (
     <>
-      {meroedu.session.tenant && <Header />}
+      {meroedu.session.tenant && true}
       <div id={props.id} className="container page">
         <div className="w-max-7xl mx-auto text-center mt-8">
           <div className="h-20 mb-4">

@@ -1,8 +1,8 @@
 import { ReactNode } from "react"
 
 import DesignServicesTwoToneIcon from "@mui/icons-material/DesignServicesTwoTone"
-import BrightnessLowTwoToneIcon from "@mui/icons-material/BrightnessLowTwoTone"
-import MmsTwoToneIcon from "@mui/icons-material/MmsTwoTone"
+// import BrightnessLowTwoToneIcon from "@mui/icons-material/BrightnessLowTwoTone"
+// import MmsTwoToneIcon from "@mui/icons-material/MmsTwoTone"
 import TableChartTwoToneIcon from "@mui/icons-material/TableChartTwoTone"
 import AccountCircleTwoToneIcon from "@mui/icons-material/AccountCircleTwoTone"
 
@@ -21,27 +21,12 @@ export interface MenuItems {
 
 const menuItems: MenuItems[] = [
   {
-    heading: "Home",
+    heading: "Dashboard",
     items: [
       {
-        name: "Overview",
-        link: "/overview",
+        name: "Dashboard",
+        link: "/",
         icon: DesignServicesTwoToneIcon,
-      },
-    ],
-  },
-  {
-    heading: "Dashboards",
-    items: [
-      {
-        name: "Crypto",
-        link: "/dashboards/crypto",
-        icon: BrightnessLowTwoToneIcon,
-      },
-      {
-        name: "Messenger",
-        icon: MmsTwoToneIcon,
-        link: "/dashboards/messenger",
       },
     ],
   },
@@ -54,17 +39,27 @@ const menuItems: MenuItems[] = [
         link: "/user/courses",
       },
       {
+        name: "Learning Paths",
+        icon: TableChartTwoToneIcon,
+        link: "/user/path",
+      },
+      {
+        name: "Forum",
+        icon: TableChartTwoToneIcon,
+        link: "/user/forum",
+      },
+      {
         name: "User Profile",
         icon: AccountCircleTwoToneIcon,
-        link: "/management/profile",
+        link: "/settings",
         items: [
           {
-            name: "Profile Details",
-            link: "/management/profile/details",
+            name: "My Settings",
+            link: "/settings",
           },
           {
-            name: "User Settings",
-            link: "/management/profile/settings",
+            name: "Site Settings",
+            link: "/admin",
           },
         ],
       },

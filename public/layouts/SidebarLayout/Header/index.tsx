@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 import { useContext } from "react"
 
-import { Box, IconButton, Tooltip } from "@mui/material"
+import { Box, IconButton, Tooltip, Typography } from "@mui/material"
 import { styled } from "@mui/material/styles"
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone"
 import { SidebarContext } from "@meroedu/contexts/SidebarContext"
 import CloseTwoToneIcon from "@mui/icons-material/CloseTwoTone"
-import Logo from "@meroedu/components/Logo"
+// import Logo from "@meroedu/components/Logo"
 import { Trans } from "@lingui/macro"
-import { NotificationIndicator, SignInModal, UserMenu } from "@meroedu/components"
+import { NotificationIndicator, SignInModal, TenantLogo, UserMenu } from "@meroedu/components"
 import { useMeroedu } from "@meroedu/hooks"
 
 const HeaderWrapper = styled(Box)(
@@ -49,7 +49,12 @@ function Header() {
             {!sidebarToggle ? <MenuTwoToneIcon /> : <CloseTwoToneIcon />}
           </IconButton>
         </Tooltip>
-        <Logo />
+        <TenantLogo size={100} />
+        <a href="/" className="flex flex-x flex-items-center flex--spacing-2 h-8">
+        <Typography variant="h3" noWrap component="div">
+            {meroedu.session.tenant.name}
+        </Typography>
+        </a>
       </Box>
       <Box display="flex" alignItems="center">
         {meroedu.session.isAuthenticated && (

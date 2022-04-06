@@ -1,3 +1,5 @@
+import "./SideMenu.scss"
+
 import React from "react"
 import { ListSubheader, List } from "@mui/material"
 import { useLocation, matchPath } from "react-router-dom"
@@ -126,6 +128,7 @@ const SubMenuWrapper = styled(List)(
 )
 
 const renderSidebarMenuItems = ({ items, path }: { items: MenuItem[]; path: string }): JSX.Element => (
+  // @ts-ignore
   <SubMenuWrapper>{items.reduce((ev, item) => reduceChildRoutes({ ev, item, path }), [])}</SubMenuWrapper>
 )
 

@@ -1,4 +1,5 @@
 import { Trans } from "@lingui/macro"
+// import Pager from "@meroedu/components/Pager/Pager"
 import React from "react"
 import { ErrorPageWrapper } from "./components/ErrorPageWrapper"
 
