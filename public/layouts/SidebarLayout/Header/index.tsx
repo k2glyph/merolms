@@ -51,9 +51,9 @@ function Header() {
         </Tooltip>
         <TenantLogo size={100} />
         <a href="/" className="flex flex-x flex-items-center flex--spacing-2 h-8">
-        <Typography variant="h3" noWrap component="div">
+          <Typography variant="h3" noWrap component="div">
             {meroedu.session.tenant.name}
-        </Typography>
+          </Typography>
         </a>
       </Box>
       <Box display="flex" alignItems="center">

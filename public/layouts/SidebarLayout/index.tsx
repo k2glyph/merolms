@@ -3,6 +3,7 @@ import { styled } from "@mui/material/styles"
 import { Box } from "@mui/material"
 import Sidebar from "./Sidebar"
 import Header from "./Header"
+import Footer from "@meroedu/components/Footer"
 
 interface SidebarLayoutProps {
   children?: ReactNode
@@ -36,6 +37,7 @@ const SidebarLayout: FC<SidebarLayoutProps> = ({ children }) => {
         <Header />
         <MainContent>{children}</MainContent>
       </MainWrapper>
+      <Footer />
     </>
   )
 }

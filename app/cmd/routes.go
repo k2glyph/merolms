@@ -40,6 +40,7 @@ func routes(r *web.Engine) *web.Engine {
 		assets.Use(middlewares.ClientCache(365 * 24 * time.Hour))
 		assets.Get("/static/favicon", handlers.Favicon())
 		assets.Static("/assets/*filepath", "dist")
+		assets.Static("/images/*filepath", "public/assets/images")
 	}
 
 	r.Use(middlewares.Session())
@@ -116,6 +117,9 @@ func routes(r *web.Engine) *web.Engine {
 
 		ui.Get("/user/courses", handlers.CoursesList())
 		ui.Get("/user/courses/create", handlers.CoursesCreate())
+
+		ui.Get("/user/forum", handlers.ForumList())
+		ui.Get("/user/dashboard", handlers.UserDashboard())
 
 		ui.Get("/settings", handlers.UserSettings())
 		ui.Get("/notifications", handlers.Notifications())

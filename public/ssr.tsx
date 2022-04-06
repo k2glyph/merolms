@@ -29,6 +29,8 @@ const pages: { [key: string]: any } = {
   "Error/Error500.page": require(`./pages/Error/Error500.page`),
   "Error/NotInvited.page": require(`./pages/Error/NotInvited.page`),
   "Course/Course.page": require(`./pages/Course/Course.page`),
+  "Forum/Forum.page": require(`./pages/Forum/Forum.page`),
+  "Dashboard/User/UserDashboard.page": require(`./pages/Dashboard/User/UserDashboard.page`),
 }
 
 //   "Course/CreateCourse.page": require(`./pages/Course/CreateCourse.page`),

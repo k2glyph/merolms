@@ -33,6 +33,26 @@ func CoursesList() web.HandlerFunc {
 		})
 	}
 }
+func ForumList() web.HandlerFunc {
+	return func(c *web.Context) error {
+
+		c.SetCanonicalURL("")
+
+		return c.Page(http.StatusOK, web.Props{
+			Page: "Forum/Forum.page",
+		})
+	}
+}
+func UserDashboard() web.HandlerFunc {
+	return func(c *web.Context) error {
+
+		c.SetCanonicalURL("")
+
+		return c.Page(http.StatusOK, web.Props{
+			Page: "Dashboard/User/UserDashboard.page",
+		})
+	}
+}
 
 func CoursesCreate() web.HandlerFunc {
 	return func(c *web.Context) error {

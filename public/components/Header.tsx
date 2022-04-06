@@ -1,9 +1,5 @@
 import React from "react"
 
 export const Header = () => {
-  return (
-    <>
-    I am empty
-    </>
-  )
+  return <>I am empty</>
 }

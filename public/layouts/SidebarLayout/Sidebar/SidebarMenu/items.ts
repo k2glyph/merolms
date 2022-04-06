@@ -21,11 +21,21 @@ export interface MenuItems {
 
 const menuItems: MenuItems[] = [
   {
+    heading: "Home",
+    items: [
+      {
+        name: "Home",
+        link: "/",
+        icon: DesignServicesTwoToneIcon,
+      },
+    ],
+  },
+  {
     heading: "Dashboard",
     items: [
       {
         name: "Dashboard",
-        link: "/",
+        link: "/user/dashboard",
         icon: DesignServicesTwoToneIcon,
       },
     ],

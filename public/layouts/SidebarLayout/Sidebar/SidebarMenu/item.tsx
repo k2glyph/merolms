@@ -27,11 +27,11 @@ const SidebarMenuItem: FC<SidebarMenuItemProps> = ({ children, link, icon: Icon,
 
   // const { toggleSidebar } = useContext(SidebarContext)
 
-const className = classSet({
-  "c-side-menu__item": true,
-  "c-side-menu__item--active": active,
-  "width": "100%"
-})
+  const className = classSet({
+    "c-side-menu__item": true,
+    "c-side-menu__item--active": active,
+    width: "100%",
+  })
   const toggleMenu = (): void => {
     setMenuToggle((Open) => !Open)
   }
@@ -51,7 +51,7 @@ const className = classSet({
       </ListItem>
     )
   }
-  
+
   return (
     <ListItem component="div" key={name} {...rest}>
       <a href={link} className={className}>
