@@ -9,6 +9,7 @@ import Hero from "./Hero"
 import Footer from "@meroedu/components/Footer"
 import { SignInModal } from "@meroedu/components"
 import { useMeroedu } from "@meroedu/hooks"
+import Pricing from "./Pricing/PricingContent"
 
 // const HomePage = () => {
 //   return <h1 style={{ textAlign: "center", fontSize: 72, fontStyle: "bold" }}> Welcome to Mero Edu</h1>
@@ -48,6 +49,7 @@ function HomePage() {
         <Card sx={{ p: 10, mb: 10, borderRadius: 12 }}>
           <Hero showModal={showModal} />
         </Card>
+        <Pricing />
       </Container>
       <Footer/>
       <SignInModal isOpen={isSignInModalOpen} onClose={hideModal} />
