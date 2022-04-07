@@ -90,7 +90,7 @@ func TestCanSendTo(t *testing.T) {
 		{
 			allowlist: "",
 			blocklist: "(^.+@meroedu.io$)",
-			input:     []string{"me@meroedu.com", "abc@meroeduio.io"},
+			input:     []string{"me@merolms.io", "abc@meroeduio.io"},
 			canSend:   true,
 		},
 		{

@@ -9,71 +9,28 @@ Mero Edu is a software application for the administration, documentation, tracki
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-[![alt text](screenshots/meroedu.png)](https://meroedu.com)
+[![alt text](screenshots/merolms.png)](https://merolms.io)
 
 ### Prerequisites
 
-1. NodeJS       => Frontend
-2. Golang       => Backend
-3. Docker(optional)
-4. Make
+1. React JS 
+2. Golang
+3. Docker
+4. Make 
+
 
 ## Development Stack
 1. Golang
 2. ReactJS
-3. Mariadb(Bitnami galera cluster)
+3. PostgresSql
 
-### Running & Initializing database
-`make prepare`
 
-## Running the tests
-
-`make test`
-`make test-coverage`
-
-## Start/Stop Backend Application
-
-`make run`
-`make stop`
-
-## Reset Backend Application
-
-`make reset`
-
-## Start/Stop Frontend Application
+### Running 
 ```
-cd ui/
-yarn add react-scripts
-yarn start
-(CTRL+C) to stop
+>> docker-compose up -d // For starting postgresql db with smtp server
+>> make watch
 ```
-
-## Code Folder Structure
-
-```
-domain // Entity
-├── course.go
-├── category.go
-└── author.go 
-
-course
-├── delivery
-│   └── http
-│       ├── course_handler.go
-│       └── course_test.go
-├── mocks
-│   ├── courseRepository.go
-│   └── courseUsecase.go
-├── repository // implementation
-│   ├── mysql_course.go
-│   └── mysql_course_test.go
-├── repository.go 
-├── usecase // Implementation
-│   ├── courseu_usecase_test.go
-│   └── course_usecase.go
-└── usecase.go // Usecase Interface.
-```
-
+`Then vist: http://localhost:3000`
 
 ## License
-[View License](https://github.com/meroedu/meroedu/blob/master/LICENSE)
+[View License](https://github.com/k2glyph/merolms/blob/master/LICENSE)
