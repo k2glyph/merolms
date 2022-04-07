@@ -1,12 +1,12 @@
-import React from 'react'
-import { Helmet } from 'react-helmet-async';
-import PageHeader from './PageHeader';
-import PageTitleWrapper from '@meroedu/components/PageTitleWrapper';
-import { Grid, Container } from '@mui/material';
-import AccountBalance from './AccountBalance';
-import Wallets from './Wallets';
-import AccountSecurity from './AccountSecurity';
-import WatchList from './WatchList';
+import React from "react"
+import { Helmet } from "react-helmet-async"
+import PageHeader from "./PageHeader"
+import PageTitleWrapper from "@meroedu/components/PageTitleWrapper"
+import { Grid, Container } from "@mui/material"
+import AccountBalance from "./AccountBalance"
+import Wallets from "./Wallets"
+import AccountSecurity from "./AccountSecurity"
+import WatchList from "./WatchList"
 
 function UserDashboardPage() {
   return (
@@ -18,13 +18,7 @@ function UserDashboardPage() {
         <PageHeader />
       </PageTitleWrapper>
       <Container maxWidth="lg">
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="stretch"
-          spacing={3}
-        >
+        <Grid container direction="row" justifyContent="center" alignItems="stretch" spacing={3}>
           <Grid item xs={12}>
             <AccountBalance />
           </Grid>
@@ -40,7 +34,7 @@ function UserDashboardPage() {
         </Grid>
       </Container>
     </>
-  );
+  )
 }
 
-export default UserDashboardPage;
+export default UserDashboardPage

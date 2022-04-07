@@ -68,9 +68,8 @@ const LabelWrapper = styled(Box)(
 // `
 // );
 
-const Hero:FC<any> = (props) =>{
+const Hero: FC<any> = (props) => {
   return (
-    
     <Container maxWidth="lg" sx={{ textAlign: "center" }}>
       <Grid spacing={{ xs: 6, md: 10 }} justifyContent="center" alignItems="center" container>
         <Grid item md={10} lg={8} mx="auto">
@@ -79,13 +78,14 @@ const Hero:FC<any> = (props) =>{
             Mero Edu
           </TypographyH1>
           <TypographyH2 sx={{ lineHeight: 1.5, pb: 4 }} variant="h4" color="text.secondary" fontWeight="normal">
-            Mero Edu is a software application for the administration, documentation, tracking, reporting, automation and delivery of educational courses, training programs, or learning and development programs for school.
+            Mero Edu is a software application for the administration, documentation, tracking, reporting, automation and delivery of educational courses,
+            training programs, or learning and development programs for school.
           </TypographyH2>
-         <ButtonGroup>
-            <Button component="a" onClick={props.showModal} size="large" variant="contained" >
+          <ButtonGroup>
+            <Button component="a" onClick={props.showModal} size="large" variant="contained">
               Sign In
             </Button>
-            
+
             {/* <Button component="a" href="/signup" size="large" variant="outlined">
               Sign Up
             </Button>

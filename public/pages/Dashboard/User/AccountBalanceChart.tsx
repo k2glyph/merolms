@@ -1,23 +1,24 @@
-import React, { FC } from 'react';
-import PropTypes from 'prop-types';
-import { Doughnut } from 'react-chartjs-2';
-import { useTheme } from '@mui/material';
+import React, { FC } from "react"
+import PropTypes from "prop-types"
+import { Doughnut } from "react-chartjs-2"
+import { useTheme } from "@mui/material"
 
 interface ChartProps {
-  data: any;
+  data: any
 }
 
 const AccountBalanceChart: FC<ChartProps> = ({ data: dataProp, ...rest }) => {
-  const theme = useTheme();
-  {/* @ts-ignore */}
-  const data = { datasets: dataProp.datasets.map((dataset) => ({ 
+  const theme = useTheme()
+  // @ts-ignore
+  const data = {
+    datasets: dataProp.datasets.map((dataset) => ({
       ...dataset,
       borderWidth: 10,
       borderColor: theme.colors.alpha.white[100],
-      hoverBorderColor: theme.colors.alpha.white[30]
+      hoverBorderColor: theme.colors.alpha.white[30],
     })),
-    labels: dataProp.labels
-  };
+    labels: dataProp.labels,
+  }
 
   const options = {
     responsive: true,
@@ -25,16 +26,16 @@ const AccountBalanceChart: FC<ChartProps> = ({ data: dataProp, ...rest }) => {
     animation: false,
     cutoutPercentage: 60,
     legend: {
-      display: false
+      display: false,
     },
     layout: {
-      padding: 0
+      padding: 0,
     },
     tooltips: {
       enabled: true,
       caretSize: 6,
       displayColors: false,
-      mode: 'label',
+      mode: "label",
       intersect: true,
       yPadding: 8,
       xPadding: 16,
@@ -45,22 +46,23 @@ const AccountBalanceChart: FC<ChartProps> = ({ data: dataProp, ...rest }) => {
       titleFontColor: theme.palette.common.black,
       bodyFontColor: theme.palette.common.black,
       footerFontColor: theme.palette.common.black,
-      
-      callbacks: { label(tooltipItem, _data) {
-          const label = _data.labels[tooltipItem.index];
-          const value = _data.datasets[0].data[tooltipItem.index];
+      //@ts-ignore
+      callbacks: {
+        label(tooltipItem, _data) {
+          const label = _data.labels[tooltipItem.index]
+          const value = _data.datasets[0].data[tooltipItem.index]
 
-          return `${label}: ${value}%`;
-        }
-      }
-    }
-  };
+          return `${label}: ${value}%`
+        },
+      },
+    },
+  }
   // @ts-ignore
-  return <Doughnut data={data} options={options} {...rest} />;
-};
+  return <Doughnut data={data} options={options} {...rest} />
+}
 
 AccountBalanceChart.propTypes = {
-  data: PropTypes.object.isRequired
-};
+  data: PropTypes.object.isRequired,
+}
 
-export default AccountBalanceChart;
+export default AccountBalanceChart

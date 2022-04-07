@@ -41,7 +41,6 @@ const SidebarLayout: FC<SidebarLayoutProps> = ({ children }) => {
           {children}
           <Footer />
         </MainContent>
-        
       </MainWrapper>
     </>
   )

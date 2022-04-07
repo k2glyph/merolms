@@ -1,40 +1,31 @@
-import React from 'react'
-import { Card, Box, Typography, Avatar } from '@mui/material';
+import React from "react"
+import { Card, Box, Typography, Avatar } from "@mui/material"
 
-import { styled } from '@mui/material/styles';
-import Label from '@meroedu/components/Label';
-import Text from '@meroedu/components/Text';
-import WatchListColumn1Chart from './WatchListColumn1Chart';
+import { styled } from "@mui/material/styles"
+import Label from "@meroedu/components/Label"
+import Text from "@meroedu/components/Text"
+import WatchListColumn1Chart from "./WatchListColumn1Chart"
 
 const AvatarWrapper = styled(Avatar)(
   ({ theme }) => `
         background: transparent;
         margin-right: ${theme.spacing(0.5)};
 `
-);
+)
 
 const WatchListColumn1ChartWrapper = styled(WatchListColumn1Chart)(
   ({ theme }) => `
         height: 130px;
 `
-);
+)
 
 function WatchListColumn3() {
-
   const price = {
     week: {
-      labels: [
-        'Monday',
-        'Tueday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday'
-      ],
-      data: [13, 16, 14, 21, 8, 11, 20]
-    }
-  };
+      labels: ["Monday", "Tueday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      data: [13, 16, 14, 21, 8, 11, 20],
+    },
+  }
 
   return (
     <Card>
@@ -54,10 +45,10 @@ function WatchListColumn3() {
         </Box>
         <Box
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-start',
-            pt: 3
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            pt: 3,
           }}
         >
           <Typography variant="h2" sx={{ pr: 1, mb: 1 }}>
@@ -69,9 +60,9 @@ function WatchListColumn3() {
         </Box>
         <Box
           sx={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-start'
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
           }}
         >
           <Label color="error">-$5</Label>
@@ -81,13 +72,10 @@ function WatchListColumn3() {
         </Box>
       </Box>
       <Box height={130} sx={{ ml: -1.5 }}>
-        <WatchListColumn1ChartWrapper
-          data={price.week.data}
-          labels={price.week.labels}
-        />
+        <WatchListColumn1ChartWrapper data={price.week.data} labels={price.week.labels} />
       </Box>
     </Card>
-  );
+  )
 }
 
-export default WatchListColumn3;
+export default WatchListColumn3

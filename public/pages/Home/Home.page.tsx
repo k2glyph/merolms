@@ -32,30 +32,30 @@ function HomePage() {
     e.preventDefault()
     setIsSignInModalOpen(true)
   }
-  const showUserDashboard= ()=> {
-    window.location.href = '/user/dashboard'; 
+  const showUserDashboard = () => {
+    window.location.href = "/user/dashboard"
   }
   return (
     <>
-    {!meroedu.session.isAuthenticated && (
-    <HomePageWrapper>
-      <Helmet>
-        <title>Mero Edu</title>
-      </Helmet>
-      <Container maxWidth="lg">
-        <Box display="flex" justifyContent="center" py={5} alignItems="center">
-          <Logo />
-        </Box>
-        <Card sx={{ p: 10, mb: 10, borderRadius: 12 }}>
-          <Hero showModal={showModal} />
-        </Card>
-        <Pricing />
-      </Container>
-      <Footer/>
-      <SignInModal isOpen={isSignInModalOpen} onClose={hideModal} />
-    </HomePageWrapper>
-    )}
-    {meroedu.session.isAuthenticated && showUserDashboard()}
+      {!meroedu.session.isAuthenticated && (
+        <HomePageWrapper>
+          <Helmet>
+            <title>Mero Edu</title>
+          </Helmet>
+          <Container maxWidth="lg">
+            <Box display="flex" justifyContent="center" py={5} alignItems="center">
+              <Logo />
+            </Box>
+            <Card sx={{ p: 10, mb: 10, borderRadius: 12 }}>
+              <Hero showModal={showModal} />
+            </Card>
+            <Pricing />
+          </Container>
+          <Footer />
+          <SignInModal isOpen={isSignInModalOpen} onClose={hideModal} />
+        </HomePageWrapper>
+      )}
+      {meroedu.session.isAuthenticated && showUserDashboard()}
     </>
   )
 }
