@@ -2,7 +2,6 @@ import React, { FC } from "react"
 import { Box, Button, Card, CardContent, TextField, InputAdornment, SvgIcon, Typography } from "@mui/material"
 import { Search as SearchIcon } from "@meroedu/icons/search"
 import { Upload as UploadIcon } from "@meroedu/icons/upload"
-import { Download as DownloadIcon } from "@meroedu/icons/download"
 
 export const CourseListToolbar: FC<any> = (props) => (
   <Box {...props}>
@@ -22,10 +21,7 @@ export const CourseListToolbar: FC<any> = (props) => (
         <Button startIcon={<UploadIcon fontSize="small" />} sx={{ mr: 1 }}>
           Import
         </Button>
-        <Button startIcon={<DownloadIcon fontSize="small" />} sx={{ mr: 1 }}>
-          Export
-        </Button>
-        <Button color="primary" variant="contained">
+        <Button color="primary" variant="contained" onClick={props.handleClickOpen('body')}>
           Add Course
         </Button>
       </Box>
