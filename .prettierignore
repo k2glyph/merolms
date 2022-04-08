@@ -9,3 +9,4 @@ dist/
 .babelrc
 **/*.js
 locale/**/*.json
+public/
