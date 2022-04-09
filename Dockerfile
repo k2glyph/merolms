@@ -44,7 +44,6 @@ COPY --from=server-builder /server/views /app/views
 COPY --from=server-builder /server/locale /app/locale
 COPY --from=server-builder /server/LICENSE /app
 COPY --from=server-builder /server/meroedu /app
-COPY --from=server-builder /server/.env /app/.env
 
 COPY --from=ui-builder /ui/favicon.png /app
 COPY --from=ui-builder /ui/dist /app/dist
