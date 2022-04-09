@@ -55,5 +55,6 @@ EXPOSE 3000
 HEALTHCHECK --timeout=5s CMD ./meroedu ping
 
 ARG DATABASE_URL
+ENV DATABASE_URL
 
 CMD ./meroedu migrate && ./meroedu
