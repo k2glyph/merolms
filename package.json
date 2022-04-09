@@ -96,6 +96,7 @@
     "sourceLocale": "en",
     "format": "minimal",
     "locales": [
+      "en",
       "pt-BR"
     ]
   },
