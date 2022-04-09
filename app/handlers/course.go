@@ -60,7 +60,7 @@ func CoursesCreate() web.HandlerFunc {
 		c.SetCanonicalURL("")
 
 		return c.Page(http.StatusOK, web.Props{
-			Page: "Course/CreateCourse.page",
+			Page: "Course/CoureseCreate.page",
 		})
 	}
 }

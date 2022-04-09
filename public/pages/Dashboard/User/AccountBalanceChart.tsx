@@ -9,8 +9,10 @@ interface ChartProps {
 
 const AccountBalanceChart: FC<ChartProps> = ({ data: dataProp, ...rest }) => {
   const theme = useTheme()
-  // @ts-ignore
-  const data = { datasets: dataProp.datasets.map((dataset) => ({
+
+  const data = {
+    // @ts-ignore
+    datasets: dataProp.datasets.map((dataset) => ({
       ...dataset,
       borderWidth: 10,
       borderColor: theme.colors.alpha.white[100],
@@ -45,8 +47,9 @@ const AccountBalanceChart: FC<ChartProps> = ({ data: dataProp, ...rest }) => {
       titleFontColor: theme.palette.common.black,
       bodyFontColor: theme.palette.common.black,
       footerFontColor: theme.palette.common.black,
-      //@ts-ignore
-      callbacks: { label(tooltipItem, _data) {
+      callbacks: {
+        // @ts-ignore
+        label(tooltipItem, _data) {
           const label = _data.labels[tooltipItem.index]
           const value = _data.datasets[0].data[tooltipItem.index]
 

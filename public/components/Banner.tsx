@@ -1,4 +1,3 @@
-import "@meroedu/assets/styles/tailwind.css"
 import React from "react"
 export interface BannerProps {
   title: string

@@ -21,7 +21,7 @@ export const CourseListToolbar: FC<any> = (props) => (
         <Button startIcon={<UploadIcon fontSize="small" />} sx={{ mr: 1 }}>
           Import
         </Button>
-        <Button color="primary" variant="contained" onClick={props.handleClickOpen('body')}>
+        <Button color="primary" variant="contained" href={props.onCourseCreateClick}>
           Add Course
         </Button>
       </Box>
