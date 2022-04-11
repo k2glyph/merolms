@@ -11,6 +11,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 [![alt text](screenshots/merolms.png)](https://merolms.io)
 
+
+# Demo
+https://merolms-production.up.railway.app/user/dashboard
 ### Prerequisites
 
 1. React JS 
