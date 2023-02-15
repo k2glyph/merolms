@@ -19,7 +19,7 @@ require (
 	github.com/lib/pq v1.10.3
 	github.com/microcosm-cc/bluemonday v1.0.16
 	github.com/patrickmn/go-cache v2.1.0+incompatible
-	github.com/prometheus/client_golang v1.11.0
+	github.com/prometheus/client_golang v1.11.1
 	github.com/prometheus/client_model v0.2.0
 	github.com/robfig/cron v1.2.0
 	github.com/russross/blackfriday v1.6.0
